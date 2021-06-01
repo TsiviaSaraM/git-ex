@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App MVC</title>
+
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body onload="onInit()">
+    <h1>Todo MVC</h1>
+
+    <div class="display-options">
+        <div class="filter">
+            <h2>Filter By</h2>
+            <select onchange="onSetFilter(this.value)">
+                <option value="ALL">All</option>
+                <option value="ACTIVE">Active</option>
+                <option value="DONE">Done</option>
+            </select>
+        </div>
+
+        <div>
+            <h2>Sort By</h2>
+            <select onchange="onSortBy(this.value)">
+                <option value="TXT">Alphabetical</option>
+                <option value="CREATED">Time Created</option>
+                <option value="IMPORTANCE">Importance</option>
+
+            </select>
+
+            <button onclick="onSortDirection('ASC')">^</button>
+            <button onclick="onSortDirection('DESC')">down</button>
+
+        </div>
+    </div>
+
+    <main>
+        <ul class="todo-list"></ul>
+        <form onsubmit="onAddTodo(event)">
+            <input name="todoTxt" type="text" placeholder="What todo" autocomplete="off" />
+            Importance:
+            <select name="importance">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            <button>Add</button>
+        </form>
+    </main>
+    <aside class="stat">
+        <h3>
+            Total Todos:
+            <span class="total-count"></span>
+            Active:
+            <span class="active-count"></span>
+        </h3>
+    </aside>
+
+    <script src="js/services/storage-service.js"></script>
+    <script src="js/services/todo-service.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+* {
+    font-family: cursive;
+    box-sizing: border-box;
+}
+
+.container::after {
+    /* background: #fbf5f3(31, 231, 31, 0.89); */
+    background-image: url("../img/books.jpg");
+    position: absolute;
+    z-index: -1;
+    opacity: 50%;
+}
+
+.container{
+    
+    padding: 10px;
+    background: #fbf5f3;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    display: block
+}
+
+
+td, th {
+    padding: 15px;
+    border: 2px solid #000022;
+    /* overflow: hidden; */
+    
+}
+
+table {
+    background: #000022;
+    border-collapse: collapse;
+}
+
+th{
+    background: #000022;
+    color: white;
+}
+
+tr:nth-child(2n){
+    background-color: rgb(235, 227, 227);
+}
+
+tr:nth-child(2n+1){
+    background-color: white;
+}
+
+.read {
+    background: blue;
+    color: white;
+    border-radius: 15%;
+}
+
+.delete {
+    background: orange;
+    color: white;
+    border-radius: 15%;
+}
+
+.update{
+    background: red;
+    color: white;
+    border-radius: 15%;
+}
+
+.add-book{
+    text-decoration: none;
+}
+
+.book {
+    display: none;
+}
+
+.addbook {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    background: #000022;
+    color: #fbf5f3;
+    padding: 5%;
+    border: 2px solid #fbf5f3;
+    display: none;
+}
+
+.readbook {
+    text-align:center;
+    position: fixed;
+    top: 5%;
+    background: #000022;
+    width: 100vw;
+    color: white;
+    margin: auto;
+    display: none;
+
+
+}
+
+.readbook img {
+    display: block;
+    margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.rating {
+    outline: 3px solid black;
+    display: inline;
+}
+

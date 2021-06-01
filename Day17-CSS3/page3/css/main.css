@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+}
+
+div {
+    display: flex;
+}
+
+.container {
+    display: flex;
+    margin: 0px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.content {
+    display: flex;
+    width: 85%;
+    flex-grow: 1;
+    flex-direction: column;
+    /* TODO align the cart on right */
+    font-size: 20px;
+}
+
+.top-row {
+    /* flex-grow: 1; */
+    /* flex-basis: 50px; */
+    height: 7vh;
+}
+
+.menu-bar {
+    /* height: 100px; */
+    /* flex-basis: 100px; */
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items :flex-end;
+}
+
+.main-page {
+    display: flex;
+    flex-grow: 1;
+    /* width: 100%; */
+}
+
+.main-page {
+    display: flex;
+}
+
+.thumbnails {
+    flex-wrap: wrap;    
+    gap: 2vw;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.thumbnail {
+    border: 2px solid black;
+    height: 150px;
+    width: 200px;
+}
+
+button {
+    align-self: flex-end; /*switch to justify-content of parent*/
+    flex-grow: 1;
+    width: 10vh;
+    height: 10vh;
+}
+
+.menu {
+    position: fixed;
+    /* z-index: 3; */
+    top: 17vh;
+    display: inline;
+    right: 0;
+    flex-direction: column;
+    align-items:center;
+}
+.menu-item {
+    height: 10vh;
+    width: 50vh;
+    padding: 15px;
+    border: 2px solid grey;    
+}
+
+/*when menu is clicked*/
+
+/* .menu {
+    display: flex;
+} */
+
+
+@media screen and (max-width:768px) {
+    
+}

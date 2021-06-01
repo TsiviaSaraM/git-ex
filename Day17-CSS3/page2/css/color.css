@@ -1,0 +1,26 @@
+.header {
+    background: #220901  ;
+}
+.content {
+    background: #621708  ;
+}
+.signup {
+    background: #941b0c  ;
+}
+.feature {
+    background: #bc3908  ;
+}
+.signup {
+    background: blue  ;
+}
+.feature:first-child {
+    background: #220901;
+}
+
+.feature:nth-child(2) {
+    background: #f6aa1c;
+}
+
+.feature:nth-child(3) {
+    background: #941b0c;
+}

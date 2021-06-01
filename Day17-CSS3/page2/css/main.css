@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+}
+
+.container {
+    padding-top: 20px;
+    background: oldlace;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    flex-grow: 1;
+}
+
+.content {
+    flex-grow: 2;
+}
+
+.signup-feature {
+    flex-grow: 4;
+}
+
+.signup, .feature {
+    flex-grow: 1;
+}
+
+@media screen and (min-width: 768px) {
+    .signup-feature {
+        flex-direction: row;
+        flex-grow: 2;
+        flex-wrap: wrap;
+    }
+
+    .signup, .feature {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+        .feature {
+            width: 33.33%;  
+        }
+
+
+        .signup {
+            order: 1;
+             height: 10vh;
+        }
+}

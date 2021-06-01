@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Shop</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body onload="onInit()">
+
+    <div class="bgcover"></div>
+    <div class="container">
+
+        <h1>Welcome to my bookshop</h1>
+
+        <section class="filter">
+            <h3>Filter</h3>
+            <input type="text" oninput="onSetFilter(this.value)">
+
+        </section>
+
+        <button class="add-book" onclick="showAddBookForm()" >Create new book</button>
+        <br><br>
+        <table>
+            <thead>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th colspan="3">Actions</th>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="buttons">
+        </div>
+
+
+    </div>
+
+
+    <div class="readbook">
+        <h1>Book Title</h1>
+        <img src="img/photo1.jpg" alt="">
+        <br>
+
+        <div class="rating">
+            <button onclick="onUpdateRating(-1)">-</button>
+            <p class="rating">0</p>
+            <button onclick="onUpdateRating(1)">+</button>
+        </div>
+
+        <button onclick="onCloseBook()" >back to books</button>
+
+    </div>
+
+
+    <form class="addbook" onsubmit="onAddBook(event)">
+
+        <h3>Adding a new book</h3>
+        <label for="title"></label>
+        <input type="text" name="title">
+        <label for="price"></label>
+        <input type="text" name="price">
+        <label for="image"></label>
+        <input type="text" name="image">
+        <button onclick="onAddBook(title)">submit</button>
+
+    </form>
+
+
+
+    <script src="js/storage-service.js"></script>
+    <script src="js/book-service.js"></script>
+    <script src="js/controller.js"></script>
+
+</body>
+
+</html>

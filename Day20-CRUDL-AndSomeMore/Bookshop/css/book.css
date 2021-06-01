@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+    font-family: cursive;
+    text-align:center
+}
+
+.rating {
+    display: flex;
+    height: 30px;
+    margin: 15px;
+    border: 3px solid pink;
+}
+
+.rating p {
+    outline: 3px solid black;
+}
+
+.rating button {
+    /* height: 100% */
+}
+
+img {
+    display: block;
+    margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}

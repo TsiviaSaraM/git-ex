@@ -1,0 +1,18 @@
+.secret {
+    display: none;
+}
+
+.users-images img{
+    width: 100px;
+    height: 100px;
+}
+
+.users-images {
+    display: flex;
+    gap: 20px
+}
+
+.mode img {
+    height: 30px
+}
+

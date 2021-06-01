@@ -1,0 +1,45 @@
+body {
+    background-color: lightcyan;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    margin: 5px;
+}
+
+.done {
+    text-decoration: line-through;
+}
+/* 
+.filter {
+    background-color: lightblue;
+    padding: 10px;
+    margin: 5px;
+} */
+
+
+.display-options {
+    display: flex;
+    gap:30px;
+    background-color: lightblue;
+    padding: 10px;
+    margin: 5px;
+}
+
+.stat {
+    background-color: lightblue;
+    padding: 5px;
+    margin: 10px 0;
+}
+
+.stat span {
+    color: darkcyan;
+}
+
+.timestamp {
+    font-size: x-small;
+    color: grey;
+    font-weight: lighter;
+    font-style: italic;
+}

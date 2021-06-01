@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta   charset="UTF-8">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Touch Nums</title>
+</head>
+
+<body onload="init()">
+    <h1>Touch Nums</h1>
+    <button onclick="startNewGame()">new game</button>
+    <div class="time"></div>
+    <div class = "levels"> <!--TODO change this to number-->
+        <button class="level", data-length=2 onclick="changeLevel(this)">very easy</button>
+        <button class="level", style="background-color: azure", data-length=4 onclick="changeLevel(this)">easy</button>
+        <button class="level", data-length=5 onclick="changeLevel(this)">medium</button>
+        <button class="level", data-length=6 onclick="changeLevel(this)">hard</button>
+    </div>
+    <div class="next-num"></div>
+    <table border="1" cellpadding="10">
+        <tbody class="board">
+            <tr>
+                <td class="cell" data-id="1" onclick="cellClicked(this)">1</td>
+
+            </tr>
+
+        </tbody>
+    </table>
+    <script src="js/main.js"></script>
+
+</body>

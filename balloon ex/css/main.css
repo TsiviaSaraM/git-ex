@@ -1,0 +1,17 @@
+.balloon {
+    bottom: 10px;
+    width:30px;
+    height: 40px;
+    border-radius: 60%;;
+    position: absolute;
+}
+
+.balloon1 {
+    background-color: blue;
+    left:0px;
+}
+
+.balloon2 {
+    background-color: blueviolet;
+    left: 500px;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <h1>Sign in!</h1>
+
+    
+    <form onsubmit="onLogin(event)" class="login">
+        <label for="usernme">Username</label>
+        <input type="text" placeholder="Enter Username" name="username">
+        <label for="pw">Passworde</label>
+        <input type="text" placeholder="Enter Password" name="pw">
+        <button >Login</button>
+    </form>
+<div class="secret">
+    <button class="logout" onclick="onLogout()">Log out</button>
+    
+    <h3 class="curr-username">Username</h3>
+    <div>secret content</div>
+    <button class="admin" onclick="showAdminPage()">Show Admin Page</button>
+</div>
+
+    <script src="js/service/storage-service.js"></script>
+    <script src="js/service/user-service.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

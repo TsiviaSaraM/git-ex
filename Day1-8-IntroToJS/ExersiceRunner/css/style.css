@@ -1,0 +1,33 @@
+body {
+    text-align: center;
+    background: linear-gradient(to bottom, #EBB811, #F6F6F6) no-repeat center / cover fixed;
+}
+
+* {
+    font-family: 'Questrial', sans-serif;
+    box-sizing: border-box;
+}
+
+
+button {
+    margin: 10px;
+    padding: 15px;
+    min-width: 4em;
+    border: none;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .45);
+    transition: .3s ease-in-out;
+    cursor: pointer;
+    text-align: center;
+    outline-color: rgb(255, 112, 112);
+    transition: .3s ease-in-out;
+}
+
+button:active, button:focus {
+    transform: scale(1.1);
+}
+
+button:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, .85);
+}

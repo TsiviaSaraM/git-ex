@@ -1,0 +1,13 @@
+.sky {
+    height: 300px;
+    width: 700px;
+    border-radius: 3px;
+}
+
+.balloon {
+    height: 120px;
+    width: 75px;
+    bottom: 0px;
+    position: absolute;
+    border-radius: 50%;
+}

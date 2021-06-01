@@ -1,0 +1,32 @@
+body {
+    background-size: 100%;
+    background-image: url(../img/bg-autumn.jpg);
+    text-align: center;
+}
+
+table {
+    margin: 5% auto;
+    border-radius: 2%;
+}
+
+.cell {
+    border-style: solid;
+   /* background-color: #FCBD35;*/
+    background-color: #FEF6C7;
+    border: 10px solid #890E12;
+    border-collapse: collapse;
+    text-align: center;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    border-radius: 10%;
+}
+
+h1 {
+    background-color: #FEF6C7;
+    border: 10px solid #890E12;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 5%;
+}
+
+
+

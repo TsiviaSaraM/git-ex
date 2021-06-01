@@ -1,0 +1,25 @@
+.container {
+    /* background: #8789c0; */
+    background: blue;
+}
+
+.top-row {
+    background: rgb(218, 126, 218);
+}
+
+.menu-bar {
+    background: rgb(202, 163, 163);
+}
+
+.content {
+    background: #7cc6fe;
+}
+
+
+.thumbnails {
+    background: grey;
+}
+
+.thumbnail {
+    background: rgb(106, 192, 124);
+}

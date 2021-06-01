@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>page 4</title>
+    <style>
+        /* * {
+            box-sizing: border-box;
+        } */
+
+        .container {
+            position: relative;
+            width: 85%;
+            background-color: cadetblue;
+            height: 800px;
+            box-sizing: border-box;
+            z-index: -2;
+        }
+
+        /* body {
+            background-color: skyblue;
+            height: 900px;
+        }*/
+
+        .flag {
+            /* display: inline-block; */
+            height: 150px;
+            width: 250px;
+            background-color: white;
+            /* position: absolute; */
+            border: 2px solid black;
+        }
+
+         .netherlands {
+            position: relative;
+            display: inline;
+            float: left;
+        } 
+
+        .netherlands .red {
+            height: 33%;
+            background-color: red;
+        }
+
+        .netherlands .blue {
+            height: 33%;
+            background-color: blue;
+            top: 67%;
+        }
+
+        .netherlands .white {
+            background-color: white;
+            height: 33%;
+            top: 33%;
+        }
+
+        .israel {
+            display: inline;
+            position: relative;
+            top: 0px;
+            float: right;
+            background-color: white;
+
+        }
+
+        .israel .blue {
+            /* position: absolute; */
+            background-color: blue;
+            height: 30px;
+        }
+
+        .israel .top {
+            position: relative; 
+            top: 5%;
+            width: 250px;
+        }
+
+        .israel .bottom {
+            position: absolute;
+            bottom: 5%;
+            width: 250px;
+            background-color: blue;
+        }
+
+        .israel .white {
+            position: absolute; 
+            top: 35%;
+            width: 250px;
+            height: 20%;
+            background-color: white;
+        }
+
+        .israel img {
+            position: absolute;
+            height: 70px;
+            width: 70px;
+            right: 40%;
+            top: 40px
+        }
+
+   .palau {
+            position: relative;
+            top: -50px;
+            left: 50px;
+            display: block;
+            z-index: auto;
+            display: block; 
+            clear: both;
+            z-index: -1;
+        }
+
+        .circle {
+            background-color: yellow;
+            border-radius: 50%;
+            height: 50%;
+            width: 30%;
+            z-index: 10;
+            position: absolute; 
+            top: 20%;
+            right: 40%;
+        }
+
+        .bonaire {
+            position: relative;
+        }
+
+        .bonaire .yellow {
+            display: inline;
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 75px solid yellow;
+            border-right: 125px solid transparent;  
+        }
+
+        .bonaire .blue {
+            position: absolute;
+            /* left: 0px;*/
+            display: inline;
+            float: right;
+            /* top: 0px;  */
+            width: 0;
+            height: 0;
+            border-bottom: 150px solid blue;
+            border-left: 250px solid transparent;
+        }
+        .bonaire .white {
+            background-color: white;
+
+        } 
+        .bonaire .star {
+            height: 40px;
+            width: 40px;
+            position: absolute;
+            left: 70px;
+            top: 35px;
+            z-index: 3;
+            fill: red;
+        }
+
+        .bonaire .circ {
+            height: 60px;
+            width: 60px;
+            position: absolute;
+            left: 60px;
+            top: 25px;
+            z-index: 3;
+        }
+
+    </style>
+
+
+</head>
+<body>
+    <div class="container">
+        
+            <div class="flag netherlands">
+                <div class="red"></div>
+                <div class="white"></div>
+                <div class="blue"></div>
+            </div>
+        
+            <div class="flag israel">
+                <div class="blue top"></div>
+                <!-- <div class = "white">
+                </div> -->
+                <img src="isr.svg" alt="star">
+                <div class="blue bottom"></div>
+            </div>
+            
+            <div class="flag palau">
+                <div class="bg"></div>
+                <div class="circle"></div>
+            </div>
+        
+            <div class="flag bonaire">
+                <div class="yellow"></div>
+                <img class="circ" src="bes-circle.svg" alt="bes-circle">
+                <img class="star" src="star.svg" alt="star">
+                <div class="blue"></div>
+                <div class="white"></div>
+
+            </div>
+            
+
+
+    </div>
+</body>
+</html>
