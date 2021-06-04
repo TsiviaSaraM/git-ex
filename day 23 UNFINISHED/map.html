@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <link rel="stylesheet" href="css/map.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+
+  <body onload=onInit()>
+
+    <div class="container-fluid">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="nav-item nav-link" href="index.html">Welcome</a>
+        <a class="nav-item nav-link" href="map.html">map & locations</a>
+        <a class="nav-item nav-link" href="user-prefs.html">Preferences</a>
+    </nav> 
+  
+      <section class="getlocation">
+          <button class="btn">
+              <img onclick="onGetCurrLocation()" src="img/location.png" alt="get-my-location">
+              <!-- <img src="img/location.png" alt="get-my-location"> -->
+          </button>
+          <p>Get My location</p>
+      </section>
+  
+    <!-- <section class="add-location">
+        <button class="btn" onclick="onAddLocation()">
+            Add location
+        </button>
+    </section> -->
+  
+      <!-- <div id="map" onclick="onAddLocation(event, this)"></div> -->
+      <div id="map" ></div>
+  
+      <table class="table table-dark">
+        <thead>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Lat</th>
+          <th>Long</th>
+          <th>Action</th>
+        </thead>
+        <tbody class="locations">
+          <tr>
+            <td>id</td>
+            <td>name</td>
+            <td>lat</td>
+            <td>long</td>
+            <td><button onclick="onRemove(id)">Delete</button></td>
+          </tr>
+        </tbody>
+  
+      </table>
+
+
+    </div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script src="js/utilService.js"></script>
+    <script src="js/storageService.js"></script>
+    <script src="js/placeService.js"></script>
+    <script src="js/controller.js"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuXfnc3e6EHlaEeZSoiXAYSxs6y7SKqIQ&callback=initMap"
+      async
+    ></script>
+  </body>
+</html>
