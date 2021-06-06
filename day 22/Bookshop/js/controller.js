@@ -1,6 +1,7 @@
 'use strict'
 
 var gCurrBookId;
+var gCurrBook;
 
 function onInit() {
     renderBooks();
@@ -54,20 +55,23 @@ function renderBooks() {
     
     //renderPageButtons();
 }
-function renderBook(bookId){
+function renderBook(){
     // var bookId =window.name;
-    var book = getBookById(bookId);
+    // debugger;
+    
     
     var strHTML =
-    `<h1>${book.name}</h1>
-    <img src="${book.photo}" alt="">`;
+        `<h1 data-trans="book-title">${gCurrBook.name}</h1>
+            <img src="${gCurrBook.photo}" alt="">`
+
+    
     
 
     document.querySelector('table').style.display = 'none';
-    document.querySelector('.bookbox').style.display = 'block';
-    document.querySelector('.book').innerHTML = strHTML;
+    document.querySelector('.readbook').style.display = 'block';
+    document.querySelector('.book-info').innerHTML = strHTML;
     debugger;
-    document.querySelector('.rating p').innerHTML = `${book.rating}`;
+    document.querySelector('.rating p').innerHTML = `${gCurrBook.rating}`;
 }
 
 function showAddBookForm(){
@@ -78,6 +82,7 @@ function showAddBookForm(){
 function onCloseBook() {
     console.log('closing book');
     document.querySelector('.readbook').style.display = 'none';
+    document.querySelector('table').style.display = 'inline';
 }
 
 function onRemoveBook(bookId) {
@@ -85,9 +90,9 @@ function onRemoveBook(bookId) {
     renderBooks();
 }
 
-function onUpdateBook(bookId, attributetoUpdate) {
+function onUpdateBook(bookId) {
     var bookPrice = +prompt('price?');
-    updateBook(bookId, bookPrice, attributetoUpdate);
+    updatePrice(bookId, bookPrice);
     renderBooks();
 }
 
@@ -104,15 +109,13 @@ function onAddBook(ev) {
 
 function onReadBook(bookId) {
     document.querySelector('.readbook').style.display = 'block';
+    gCurrBook = getBookById(bookId);
+    renderBook(bookId)
 }
 
 function onUpdateRating(difference) {
-    if (!updateBook(difference, 'RATING')) {
-        alert('this is an invalid rating. rating must be between 0 and 10');
-        return;
-    }
-
-    renderBook(gCurrBookId);
+    updateRating(difference);
+     renderBook();
 }
 
 function onChoosePage(pageNumber) {
@@ -133,4 +136,9 @@ function onSetLang(lang) {
     doTrans();
     // renderBooks();
     
+}
+
+function onSortBy(attribute) {
+    sortBy(attribute);
+    renderBooks();
 }

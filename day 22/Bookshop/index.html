@@ -32,9 +32,9 @@
         <br><br>
         <table>
             <thead>
-                <th data-trans="th-id">ID</th>
-                <th data-trans="th-title">Title</th>
-                <th data-trans="th-price">Price</th>
+                <th data-trans="th-id" onclick="onSortBy('ID')">ID</th>
+                <th data-trans="th-title" onclick="onSortBy('TITLE')">Title</th>
+                <th data-trans="th-price" onclick="onSortBy('PRICE')">Price</th>
                 <th data-trans="th-actions" colspan="3">Actions</th>
             </thead>
             <tbody>
@@ -48,8 +48,11 @@
 
 
     <div class="readbook">
-        <h1 data-trans="book-title">Book Title</h1>
-        <img src="img/photo1.jpg" alt="">
+        <div class="book-info">
+            <!-- <h1 data-trans="book-title">Book Title</h1>
+            <img src="img/photo1.jpg" alt=""> -->
+        </div>
+
         <br>
 
         <div class="rating">

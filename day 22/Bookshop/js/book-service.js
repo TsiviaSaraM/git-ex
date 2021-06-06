@@ -6,6 +6,7 @@ var gBooks =  _createBooks();
 var gId = gBooks.length + 1;
 var gPageIndx = 0;
 var gFilter = {txt: ''}
+var gSort = {attribute:'ID', direction:1} //ID PRICE TITLE
 var gNumPages;
 
 
@@ -15,7 +16,7 @@ var gNumPages;
 
 
 //TODO add filter and sort
-function GetBooksForDisplay() { 
+function GetBooksForDisplay() {
     //if we are before the first page
     if (gPageIndx < 0) {
         gPageIndx = 0;
@@ -49,32 +50,22 @@ function removeBook(bookId) {
     saveToStorage();
 }
 
-//TODO readbook model
-//TODO combine these 2 as 1 function with attributetoUpdate as a param
-
 //returns the book updated
-function updateBook(bookId, bookPrice, addributeToUpdate) {
+function updatePrice(bookId, newPrice) {   
     var book = getBookById(bookId)
-
-    if (!book) return false;
-
-    if (addributeToUpdate === 'PRICE') book.price = bookPrice;
-    else if (addributeToUpdate === 'RATING') {
-        book.rating += difference;
-        if (book.rating < 0 || book.rating > 10) return 0;
-    }
+    if (!book) return false; 
+    book.price = newPrice;
     return book;
 }
 
-//returns 0 if the rating cannot be updated
-// function updateRating(bookId, difference) {
-//     var book = getBookById(bookId);
+// returns 0 if the rating cannot be updated
+function updateRating(difference) {
+    var newRating = gCurrBook.rating + difference;
+    if (newRating >= 0 && newRating <= 10) {
+        gCurrBook.rating += difference;
+    }
 
-//     if (!book) return 0;
-
-    
-//     return book;
-// }
+}
 
 function getBookById(bookId) {
     return gBooks.find(function(book){
@@ -86,18 +77,19 @@ function getBookById(bookId) {
 function _createBooks(){
     var books = loadFromStorage(KEY);
     if (!books || books.length === 0) {
+        gId = 1;
         books = [];
         for (var i = 0; i < 10; i++) {
-           books.push(_createBook("title "+i, 1.50));
+           books.push(_createBook("title "+i, 1.50 /*+ Math.random()*2*/));
         }
-        _saveToStorage();
+        _saveToStorage(books);
     } 
     
     console.log("books created", books);
     return books;
 }
 
-function _createBook(name, price, imageurl="../img/photo1.jpg") {
+function _createBook(name, price, imageurl='../img/photo'+gId%3+'.jpg') {
     return {
         id: gId++,
         name: name,
@@ -107,8 +99,8 @@ function _createBook(name, price, imageurl="../img/photo1.jpg") {
     }
 }
 
-function _saveToStorage() {
-    saveToStorage(KEY, gBooks);
+function _saveToStorage(books) {
+    saveToStorage(KEY, books);
 }
 
 function choosePage(pageNumber) {
@@ -122,3 +114,21 @@ function setFilter(filterBy) {
 
 //TODO in sort use diff as 1 or minus 1
 //add check that change of price is not 0
+
+function sortBy(attribute){console.log('sorting');
+
+debugger;
+    if (gSort.attribute === attribute) gSort.direction *= -1;
+    else gSort.direction = 1
+    gSort.attribute = attribute;
+    gBooks = gBooks.sort((book1, book2)=>{
+        switch(gSort.attribute){
+            case 'ID':
+                return gSort.difference * (book1.id - book2.id);
+            case 'PRICE':
+                return gSort.difference * (book1.price - book2.price);
+            case 'TITLE':
+                return gSort.difference * (book1.name.localeCompare(book2.name))
+        }
+    });
+}

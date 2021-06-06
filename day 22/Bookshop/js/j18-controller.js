@@ -80,7 +80,6 @@ var gCurrLang = 'en' //en, he, es
 function getTrans(key){
     if (!gTrans[key]) return 'UNKNOWN';
     if (!gTrans[key][gCurrLang]) return gTrans[key].en;
-    console.log(gTrans[key]);
     return gTrans[key][gCurrLang];
 }
 
