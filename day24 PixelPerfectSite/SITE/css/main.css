@@ -1,0 +1,508 @@
+*{
+    box-sizing: border-box;
+}
+
+/*fonts*/
+@font-face {
+    font-family: lato;
+    src: url(../font/Lato-Regular.ttf);
+}
+
+@font-face {
+    font-family: latobold;
+    src: url(../font/Lato-Bold.ttf);
+}
+
+@font-face {
+    font-family: eurof;
+    src: url(../font/eurof55.ttf);
+}
+
+/* TODO how do I download the tff file???? */
+@font-face {
+    font-family: awesome-fonts;
+    src: url(../font/fa-brands-400.ttf);
+}
+
+/*BASE*/
+
+body{
+    margin: 0;
+    font-family: lato, Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, ul {
+    margin: 0 0;
+}
+
+/* a {
+    text-decoration: none;
+    align-items: center;
+    color: inherit;
+} */
+
+/*TODO add a*/
+
+
+/*****layout*********/
+.main-content{
+    max-width: 981px;
+    margin: 0 auto;
+    border: 1px solid #E1E0E0;
+    
+}
+
+.container {
+    /* max-width: 981px; */
+    margin: 0 auto;
+}
+
+/**********helpers****************/
+.flex {
+    display: flex;
+
+}
+/* .screen{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(212, 209, 209);
+    z-index: 1;
+    opacity: 0.5;
+    position: fixed;
+    top: 40px;
+    display: 'none';
+} */
+
+/* List Helpers */
+
+.clean-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.flex.align-center{
+    align-items: center;
+}
+
+.logo{
+    font-family: eurof, Arial, Helvetica, sans-serif;
+}
+
+.logo span {
+    color: #58C93A;
+}
+
+/*******header***********/
+.header-container{
+    background-color: #292929;
+    width: 100%;
+    /* position: fixed; */
+}
+/*can use vertical-align to align navbar*/
+
+
+.main-header{
+    color: white;
+    max-width: 981px;
+    margin: 0 auto;
+    margin-bottom: 2.5rem;
+    /* font-family: lato Arial, Helvetica, sans-serif; */
+    height: 131px;
+}
+
+header .nav-main{
+    width: 100%;
+}
+
+.main-header .nav-main a {
+    text-decoration: none;
+    align-items: center;
+    color: inherit;
+}
+
+.main-header .nav-main {
+        justify-content: flex-end;
+    height: 100%;
+}
+
+.main-header .nav-main li {
+    width: 132px;
+    height: 100%;
+    text-align: center;
+    border-bottom: 0.3125em solid #1E1E1E;
+    justify-content: center;
+    border-right: 1px solid #1E1E1E;
+}
+
+.main-header .nav-main li:first-child {
+    border-left: 1px solid #1E1E1E;
+}
+
+.main-header .nav-main li:active {
+    border-bottom: 0.3125em solid #58C93A;
+    color: #58C93A;
+}
+
+.main-header .nav-main li:hover {
+    color: #58C93A;
+}
+
+.main-header .logo {
+    font-size: 2.5rem;
+}
+
+/************card************/
+
+.card-container{
+    margin-bottom: 5rem;
+    
+}
+
+.card-container img {
+    height: auto;
+    max-width: 47.8%;
+    width: 50%;
+    object-fit: contain;
+    display: inline;
+}
+
+/*TODO use flex and gap instead of inner margins between img and text*/
+.card-container .card-content {
+    margin-left: 2.625em;
+    margin-right: 1.5625em;
+    flex-direction: column;
+    justify-content: flex-start
+}
+
+.card-container .card-content h3 {
+    text-transform: uppercase;
+    font-size: 1.75rem;
+    color: #4F4E4E;
+    font-family: latobold, Arial, Helvetica, sans-serif;
+    margin-bottom: 3.625rem;
+    max-height: 3.5em;
+    overflow:hidden
+}
+
+.card-container .card-content p {
+    margin-bottom: 2.9375rem;
+    margin-top: 0;
+    overflow: hidden;
+    max-height: 7.5rem;
+
+}
+
+.card-container .card-content p:last-child {
+    flex-basis: 1;
+}
+
+.card-container .continue {
+    padding: 14px 25px 12px 27px;
+    text-decoration: none;
+    color: #C2C1C1;
+    border: 2px solid #C2C2C2;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+
+
+/*TODO why is the arrow not working*/
+.card-container .continue:hover{
+    color: #58C93A;
+    border-color: #58C93A;
+}
+
+.card-container .continue::after{
+    content: " →";
+    position: absolute;
+    right: .625em;
+    opacity: 0;
+}
+
+.card-container .continue:hover::after{
+    content: " →";
+    position: absolute;
+    right: .625em;
+    opacity: 1;
+}
+
+.pages {  
+    justify-content: space-between;
+    text-transform: uppercase;
+    color: #818181;
+    padding: 1.875rem;
+    border-top: 1px solid #E1E0E0;
+    font-family: latobold, Arial, Helvetica, sans-serif;
+}
+
+.pages li:hover{
+    color: blue;
+    cursor: pointer;
+}
+
+
+/*************footer***********/
+footer {
+    text-align: center;
+    font-family: latobold, Arial, Helvetica, sans-serif;
+    background-color: #F8F8F8;
+    padding-top: 5rem;
+}
+
+footer .logo{
+    font-size: 2.5rem;
+    color: #292929;
+    margin-bottom: 2rem;
+}
+
+footer small {
+    font-size: 0.8125rem;
+    color: #A6A6A6;
+    margin-bottom: 2.3125rem;
+    display: block;
+}
+
+footer ul {
+    justify-content: center;
+    margin-bottom: 5rem;
+    gap:1.875rem;
+    font-family: awesome-fonts;
+    /* align-items: center; */
+}
+
+/*TODO center this with flex*/
+footer ul li{
+    color: white;
+    height: 2.5625rem;
+    width: 2.5625rem;
+    background-color: #E5E5E5;
+    justify-content: center;
+    align-items: center;
+    /* line-height: 1rem; */
+}
+
+footer .facebook a::before{
+    content: "\f39e";
+}
+
+footer .twitter a::before{
+    content: "\f099";
+}
+
+footer .behance a::before{
+    content: "\f1b4";
+}
+
+footer .dribble a::before{
+    content: "\f434";
+}
+
+footer .facebook a:hover {
+    background-color: #516FAD;
+}
+
+footer .twitter a:hover {
+    background: #55ACEE;
+}
+
+footer .behance a:hover {
+    background: #053eff;
+}
+
+footer .dribble a:hover {
+    background: #ea4c89;
+}
+
+@media screen and (max-width: 1020px) {    
+    html {
+        font-size: 12px;
+    }
+    body {
+        /* background-color: orange; */
+    }
+
+    .main-header{
+        height: 100px;
+    }
+
+    .main-header .nav-main li {
+        width: 90px;
+    }
+
+    .card-container .card-content h3 {
+        margin-bottom: 1rem;;
+    }
+
+    .card-container img {
+        padding-left: 2rem;
+    }
+}
+
+
+
+@media screen and (max-width: 740px) {    
+    html{
+        font-size: 16px;
+    }
+    body {
+        /* background-color: purple; */
+    }
+
+    .main-content {
+        padding: 1rem 2rem;
+        margin: 0 auto
+    }
+
+    .card-container{
+        flex-direction: column;
+        padding: 1rem;
+        width: 100%;
+        align-items: center;
+        -webkit-box-shadow: 0px 4px 3px 3px #C7C7C7;
+-moz-box-shadow: 0px 4px 3px 3px #C7C7C7;
+box-shadow: 0px 4px 3px 3px #C7C7C7;
+        /* width: 0.6vw;
+        height: 0.8vw; */
+    }  
+
+    .continue{
+        display: none;
+    }
+
+
+    .card-container img {
+        width: 100%;
+        max-width: 100%;
+        display: block;
+        margin-bottom: 0.5rem;
+        padding: 0;
+    }
+
+    .card-container .card-content{
+        margin: 0;
+    }
+
+    .card-container .card-content h3 {
+        margin-bottom: 0.5em;;
+    }
+
+    /* .card-container img {
+        height: auto;
+        max-width: 47.8%;
+        width: 50%;
+        object-fit: contain;
+        display: inline;
+    } */
+
+    
+/*******header***********/
+/* .header-container{
+    background-color: #292929;
+    width: 100%
+} */
+
+/* header .nav-main{
+    width: 100%;
+}
+
+.main-header .nav-main a {
+    align-items: center;
+}
+
+.main-header .nav-main {
+        justify-content: flex-end;
+    height: 100%;
+}
+
+.main-header .nav-main li {
+    width: 132px;
+    height: 100%;
+    text-align: center;
+    border-bottom: 0.3125em solid #1E1E1E;
+    justify-content: center;
+    border-right: 1px solid #1E1E1E;
+}
+
+.main-header .nav-main li:first-child {
+    border-left: 1px solid #1E1E1E;
+}
+
+.main-header .nav-main li:active {
+    border-bottom: 0.3125em solid #58C93A;
+}
+
+
+.main-header .logo {
+    font-size: 2.5rem;
+} */
+
+/***********************/
+.main-header{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 1rem;
+    height: 3rem;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+
+.main-header .hamburger{
+    font-size: 2.5rem;    
+    
+}
+
+.main-header .nav-main{
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: -25rem;
+    /* bottom: 50px; */
+    height: 800px;
+    /* max-width: 100%;
+    width: 100%; */
+    z-index: 2;
+    padding: 2em;
+    text-transform: uppercase;
+}
+
+.main-header .nav-main li {
+    width: 100%;
+    /* height: 100%; */
+    text-align: center;
+    border-bottom: 0.3125em solid #1E1E1E;
+    justify-content: center;
+    border-right: 1px solid #1E1E1E;
+    background-color: grey;
+    height: 5rem;
+}
+
+.screen{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(212, 209, 209);
+    z-index: 1;
+    opacity: 0.5;
+    position: fixed;
+    top: 40px;
+    display: none;
+}
+}
+
+
+/******************************************************/
+.readmore{
+    position:fixed;
+    /* top: 50vw; */
+    top: 10vh;
+    left: 20vh;
+    height: 80vh;
+    width: 80vw;
+    padding: 2rem;
+    color: lightcoral;
+    background-color: lightslategray;
+    font-size: 2rem;
+    display: none;
+}

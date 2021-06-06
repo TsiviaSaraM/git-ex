@@ -19,6 +19,8 @@ function getCurrLocation(){
 
 function showPosition(position) {
   console.log("Latitude: " + position.coords.latitude +', ' + "Longitude: " + position.coords.longitude);
+
+  //TODO dont redefine the map, just reset the center
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: position.coords.latitude, lng: position.coords.longitude},
     zoom: 12,
@@ -32,7 +34,6 @@ function removeLocation(id) {
 
 function createPlaces(){
   gPlaces = loadFromStorage(PLACES_KEY);
-  console.log('gPlaces at beginning...', gPlaces);
   
   if (!gPlaces || !gPlaces.length){
     gPlaces = [];
@@ -43,8 +44,6 @@ function createPlaces(){
   }
   console.log('gPlaces:', gPlaces);
   return gPlaces;
-  // debugger;
-
 }
 
 function _createPlace(name, lat, lng){
@@ -58,8 +57,6 @@ function _createPlace(name, lat, lng){
 }
 
 function addLocation(name, lat, lng){
-    // debugger;
-    var id = getRandomId();
     gPlaces.push(_createPlace(name, lat, lng));
       console.log(gPlaces);
       saveToStorage(PLACES_KEY, gPlaces);

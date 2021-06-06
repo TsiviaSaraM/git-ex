@@ -8,33 +8,24 @@ function onInit() {
 }
 
 function initMap() {
-    //TODO cn write gMap.addListener((event)=>{...})
-    
     map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: 29.5577, lng: 34.9519 },
         zoom: 12,
     });
-    // map.addListener((event)=>{onAddLocation})
-    google.maps.event.addListener(map, 'click',onAddLocation);
+    map.addListener('click',onAddLocation);
 }
 
+//TODO if click on table go to that loation
 function renderLocations() {
     console.log('gPlaces', gPlaces);
     var strHTML = gPlaces.map(place => {
-        debugger;
         var latlng = new google.maps.LatLng(place.lat, place.lng);
-        console.log('laglng', latlng);
         new google.maps.Marker({
             position: latlng,
             map,
             title:'mymarker',
-            icon: '../img/icon.png'
+            // icon: '../img/icon.png?'
         });
-        // var marker = new google.maps.Marker();
-        // marker;
-        // marker.setPosition({lat: place.lat, lng: place.lng});
-        // marker.setAnimation(google.maps.Animation.BOUNCE);
-        // marker.setIcon('../img/location.png');
         return `
         <tr>
             <td>${place.id}</td>
@@ -50,22 +41,20 @@ function renderLocations() {
 //add place entered to local storage
 function onAddLocation(ev){
 
-    alert("Latitude: " + ev.latLng.lat() + " " + ", longitude: " + ev.latLng.lng());
-
+    // alert("Latitude: " + ev.latLng.lat() + " " + ", longitude: " + ev.latLng.lng());
     var name = prompt('name?');
     var lat = ev.latLng.lat();
-    var long = ev.latLng.lng();
+    var lng = ev.latLng.lng();
 
-    console.log(name, lat, long);
-    addLocation(name, lat, long);
+    console.log(name, lat, lng);
+    addLocation(name, lat, lng);
     renderLocations();
 
 }
 
 
 function onRemoveLocation(id) {
-    removeLocation(id);
-   
+    removeLocation(id);  
     renderLocations();
 }
 

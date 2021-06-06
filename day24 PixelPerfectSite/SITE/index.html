@@ -5,14 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blogin</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 </head>
 <body>
+    <div class="screen"></div>
     <div class="container">
     
     <div class="header-container">
         <header class="main-header flex align-center">
-            <div class="logo">Blogin</div>
+            <h3 class="logo">Blogin<span>.</span></h3>
+            <div class="hamburger" onclick=onToggleMenu(this)>≡</div>
             <ul class="nav-main flex clean-list">
                 <li class="flex align-center"><a  href="">Journal</a></li>
                 <li class="flex align-center" ><a href="">About</a></li>
@@ -29,10 +31,12 @@
                     <div class="main">
                         <div class="card-container flex">
                             <img src="img/img1.jpeg" alt="img1">
-                            <div class="card-content">
+                            <div class="card-content flex">
                                 <h3>Duis aute arure dolor in henderit in volupdate</h3>
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis nam laborum quaerat? Expedita dicta mollitia eaque voluptatibus tempore assumenda eum deleniti cupiditate quisquam commodi, tenetur sint quos nihil magnam accusantium.</p>
-                                <a class="continue clean-list" href="">Continue reading</a>
+                                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo doconsequat, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+
+                                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur...</p>
+                                <a class="continue clean-list" href="" onclick="onReadMore()">Continue reading</a>
                             </div>
                         </div>
             
@@ -41,7 +45,7 @@
                             <div class="card-content">
                                 <h3>Duis aute arure dolor in henderit in volupdate</h3>
                                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis nam laborum quaerat? Expedita dicta mollitia eaque voluptatibus tempore assumenda eum deleniti cupiditate quisquam commodi, tenetur sint quos nihil magnam accusantium.</p>
-                                <a class="continue clean-list" href="">Continue reading</a>
+                                <a class="continue clean-list" href="" onclick="onReadMore()">Continue reading</a>
                             </div>
                         </div>
             
@@ -50,7 +54,7 @@
                             <div class="card-content">
                                 <h3>Duis aute arure dolor in henderit in volupdate</h3>
                                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis nam laborum quaerat? Expedita dicta mollitia eaque voluptatibus tempore assumenda eum deleniti cupiditate quisquam commodi, tenetur sint quos nihil magnam accusantium.</p>
-                                <a class="continue clean-list" href="">Continue reading</a>
+                                <a class="continue clean-list" href="" onclick="onReadMore()">Continue reading</a>
                             </div>
                         </div>
             
@@ -69,23 +73,30 @@
             <div class="footer-container">
                 <h3 class="logo">Blogin<span>.</span></h3>
                 <small>&#169; 2014 Blogin.com - All Rights Reserved - Find more free Templates at <strong>Pixelhint.com</strong></small>
-                <span class="social-container">
-                    <ul class="social-nav flex clean-list">
-                        <li class="facebook"><a href="#" class="fa fa-facebook"></a></li>
-                        <li class="twitter"><a href="#" class="fa fa-twitter"></a></li>
-                        <li class="google"><a href="#" class="fa fa-google"></a></li>
-                        <li class="youtube"><a href="#" class="fa fa-youtube"></a></li>
-                    </ul>
+                <ul class="social-nav flex clean-list">
+                    <!-- <li class="facebook social-link flex"><a href="#" ><img src="img/facebook.png" alt=""></a></li> -->
+                    <li class="facebook social-link flex"><a href="#" ></a></li>
+                    <li class="twitter social-link flex"><a href="#"></a></li>
+                    <li class="behance social-link flex"><a href="#" ></a></li>
+                    <li class="dribble social-link flex"><a href="#" ></a></li>
+                </ul>
 
-                </span>
+
             </div>
             <footer class="main-footer"></footer>
         </footer>
 
-   
+   <model class='readmore' onclick="onReadMore(event)">
+        <h3>Duis aute arure dolor in henderit in volupdate</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis nam laborum quaerat? Expedita dicta mollitia eaque voluptatibus tempore assumenda eum deleniti cupiditate quisquam commodi, tenetur sint quos nihil magnam accusantium.</p>
+        <p>Join us to get access to the latest stories!</p>
+        <input type="email">
+        <button>Submit</button>
+        <button onclick="onClosModel()">Close</button>
+   </model>
 
 
     </div>
-    
+    <script src="js/main.js"></script>
 </body>
 </html>
