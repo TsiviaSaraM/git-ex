@@ -9,12 +9,14 @@ function onToggleMenu(elIcon) {
     gMenuShowing = !gMenuShowing;
     var elNav = document.querySelector('.nav-main');
     if (gMenuShowing){
-        elNav.style.display = 'flex';
+        // elNav.style.display = 'flex';
+        elNav.classList.add('active');
         elIcon.innerText = 'X'
     } 
     else {
-        elNav.style.display = 'none';
+        // elNav.style.display = 'none';
         elIcon.innerText = '≡';
+        elNav.classList.remove('active');
     }
     return;
 }
