@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 200px auto 200px;
+    grid-template-rows: 200px 100px auto 100px;
+    height: 95vh;
+    grid-template-areas: "header header header"
+                        "nav nav nav"
+                        "aside main commercial"
+                        "footer footer footer"
+}
+
+.grid-content {
+    border: 1px solid green;
+}
+
+.header {
+    grid-area: header;
+    background-color: greenyellow;
+}
+
+.nav {
+    grid-area: nav;
+    background-color: goldenrod;
+}
+
+.aside {
+    grid-area: aside;
+    background-color: indianred;
+}
+
+.main {
+    grid-area: main;
+    background-color: lavender;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: lightblue;
+    width: 80vw;
+    justify-self: center;
+}

@@ -1,0 +1,80 @@
+/******************************ALL SCREEN SIZES**********************************/
+.grid {
+    display: grid;/**/
+    gap: 1.1875rem; 
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(9 1fr);
+    grid-auto-flow: dense;/**/
+    /* grid-template-rows: repeat(auto-fit 1fr ); */
+}
+
+.square{
+    grid-column: span 2;
+    grid-row: span 5;
+    background: url("../images/image-001.jpg");/**/
+  
+}
+
+.tall {
+    grid-row: span 5;
+    grid-column: span 1;
+    background: url("../images/image-002.jpg");/**/
+  
+}
+
+.long {
+    grid-column: span 3;
+    grid-row: span 4;
+    background: url("../images/image-003.jpg");/**/
+
+}
+
+.square, .long, .tall {/**/
+    border: 1px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
+
+}
+/**************************MEDIA DEFS**DESKTOP*******************************/
+.grid {
+    gap: 1.1875rem; 
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(9 1fr);
+}
+
+.square{
+    grid-column: span 2;
+    grid-row: span 5;
+}
+
+.tall {
+    grid-row: span 5;
+    grid-column: span 1;
+}
+
+.long {
+    grid-column: span 3;
+    grid-row: span 4;
+}
+/**************************MEDIA DEFS***TABLET******************************/
+.grid {
+    gap: 1.1875rem; /*same as laptop - REMOVE*/ 
+    grid-template-columns: 1fr 1fr 1fr;/*same as laptop*/
+    grid-template-rows: repeat(5 1fr);
+}
+
+.square{
+    grid-column: span 2;/*same as laptop*/
+    grid-row: span 3;
+}
+
+.tall {
+    grid-row: span 5;/*same as laptop*/
+    grid-column: span 1;/*same as laptop*/
+}
+
+.long {
+    grid-column: span 2;
+    grid-row: span 2;
+}
