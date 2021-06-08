@@ -7,21 +7,40 @@
     <title>Mister Canvas</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body onload="init()">
+<body onload="onInit()">
     <h1>Mister Canvas</h1>
 
     <div class="select">
-        <input type="color">
-        <input type="color">
-        <input type="dropdown">
-        <button>save</button>
-        <button>clear</button>
-        <button>download</button>
+        <input type="color" onchange="onChangeColor(this)">
+        <button onclick="onChangeColor(this)" value="random">Random Color</button>
+        <input type="color" onchange="onChangeBgColor(this)">
+        <button onclick="onChangeBgColor(this)" value="random">Random BG Color</button>
+        <select onchange="onChangeBgPattern(this)">
+            <option value="none" >none</option>
+            <option value="moroccan-flowers">Moroccan Flowers</option>    
+        </select>
+        <select onchange="onChangeShape(this)">
+            <option value="rectangle" name="rectangle">rectangle</option>    
+            <option value="circle" name="circle">circle</option>
+            <option value="line" name="line">line</option>
+            <option value="triangle" name="triangle">triangle</option>
+            <option value="arrow" name="arrow">arrow</option>
+        </select>
+        <button onclick="onSave()">save</button>
+        <button onclick="onClear()">clear</button>
+        <button onclick="onRestore()" >restore</button>
+        <a href="" class="download" onclick=onDownload() download="canvas.jpeg">download</a>
+        
     </div>
 
 
     <div class="canvas-container">
         <canvas height=600px, width=1000px></canvas>
     </div>
+
+    <script src="js/draw-controller.js"></script>
+    <script src="js/options-service.js"></script>
+    <script src="js/upload-service.js"></script>
+    <script src="js/controller.js"></script>
 </body>
 </html>

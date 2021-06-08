@@ -12,6 +12,10 @@ body {
     color: #28587B;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
 canvas {
     background-color: #EEEEFF;
