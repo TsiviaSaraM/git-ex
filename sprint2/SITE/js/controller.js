@@ -5,12 +5,12 @@ var gElCanvas;
 var gCtx;
 var gStartPos;
 
-// var gElCurrImg
 
 function onInit(){
     console.log('init...');
-    // gElCanvas = document.querySelector('canvas');
-    // gCtx = gElCanvas.getContext('2d');
+    gElCanvas = document.querySelector('canvas');
+    gCtx = gElCanvas.getContext('2d');
+    addListeners();
 
 }
 
@@ -88,13 +88,6 @@ function onEditFill(el){
 
 /***************ADD LISTENERS************* */
 
-function onTest(text){
-    console.log('testing...', text);
-}
-
-
-
-/************************ */
 function renderLine() {
 
 }
@@ -112,15 +105,21 @@ function onDown(ev){
     //TODO empty input textbox
     var pos = getEvPos(ev);
     if (!isLineClicked(pos)) return;
+    console.log('moving text...');
     setLineDrag(true);
     gStartPos = pos;
 }
 
 function onMove(ev){
-
+    if (gIsDrag) {
+        const pos = getEvPos(ev);
+        moveLine(pos);
+        console.log('about to render');
+        renderCanvas();
+    }
 }
 function onUp(){
-
+    setLineDrag(false);
 }
 
 function getEvPos(ev){

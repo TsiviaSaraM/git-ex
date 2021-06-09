@@ -58,13 +58,31 @@ function setCurrImg(){
 
 }
 
-function isLineClicked(clilckedPos){
-
+function isLineClicked(clkPos){
+    console.log('checking if clicked');
+    return gMeme.lines.some(function(line){
+        var canvasText = gCtx.measureText(line.txt)
+        var txtWidth = canvasText.width;
+        var txtHeight = canvasText.fontBoundingBoxAscent + canvasText.fontBoundingBoxDescent;
+        // debugger;
+        console.log('clicked pos:', clkPos.x, clkPos.y);
+        console.log('testing',line.posX, line.posY, txtWidth, txtHeight, clkPos.x > line.posX && clkPos.x < (line.posX + txtWidth) && clkPos.y > line.posY && clkPos.y < (line.posY + txtHeight));
+        return clkPos.x > line.posX && clkPos.x < (line.posX + txtWidth) &&
+                clkPos.y > line.posY && clkPos.y < (line.posY + txtHeight);
+    })
+    
 }
 
 
 function setLineDrag(val){
     gIsDrag = val;
+}
+
+function moveLine(pos) {
+    console.log('moving the line by', pos.x, pos.y);
+    var line = gMeme.lines[gMeme.selectedLineIdx];
+    line.posX = pos.x;
+    line.posY = pos.y;
 }
 
 /*************EDITING A SPECIFIC MEME************ */
