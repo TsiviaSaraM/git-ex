@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/editor.css">
+    <title>Document</title>
+</head>
+<body onload="onInit()">
+
+    <div class="conatiner">
+        <header class="flex">
+            <h3 class="logo">memgen</h3>
+
+            <nav>
+                <ul class="flex">
+                    <li class="flex"><a href="">Gallery</a> </li>
+                    <li class="flex"><a href="">Memes</a> </li>
+                    <li class="flex"><a href="">Abouts</a> </li>
+
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            
+            <div class="grid-container">
+                <img onclick="onSelectImg(this)" src="img/memes/1.jpg" data-id=1 alt="">
+                <img onclick="onSelectImg(this)" src="img/memes/2.jpg" data-id=2 alt="">
+                <img onclick="onSelectImg(this)" src="img/memes/3.jpg" data-id=3 alt="">
+            </div>
+            <section class="editor flex">
+                <div class="canvas-container">
+                    <canvas></canvas>
+                </div>
+                <div class="control-box flex-col">
+                    <input type="text" oninput="onEditText(this.value)" onmousedown="onAddLine(this.value)">
+                    >
+                    <div class="row2">
+                        <button class="vertivalmove" onclick="onVerticalMove()"></button>
+                        <button onclick="onAddLine()" class="add-text-area">+</button>
+                        <button onclick="onRemoveText()">delete</button>
+                    </div>
+
+                    <div class="row3">
+                        <button onclick="onEditSize(1)">A+</button>
+                        <button onclick="onEditSize(-1)">A</button>
+                        <button onclick="onEditJustifyText('LEFT')"></button>
+                        <button onclick="onEditJustifyText('CENTER')"></button>
+                        <button onclick="onEditJustifyText('RIGHT')"></button>
+
+                    </div>
+                    <div class="row4">
+                        <select name="color" placeholder="font">
+                            <option value="impact">Impact</option>
+                            <option value="arial">Arial</option>
+                            <option value="helvetica">Helvetica</option>
+                        </select>
+                        <button onclick="onEditFont(el)"></button>
+                        <!-- <input onclick="onEditStroke(this)" type="color"> -->
+                        <button onclick="onEditStroke(this)" >color</button>
+                        <!-- <button ><input onclick="onEditStroke(this)" type="color"></button> -->
+                        <button onclick="onEditFill(this)"></button>
+                    </div>
+                    <div class="row5">STICKERS</div>
+                    <div class="row6"><button>Share</button></div>
+                    
+                </div>
+    
+            </section>
+
+        </main>
+
+    </div>
+    <script src="js/meme-service.js"></script>
+    <script src="js/controller.js"></script>
+</body>
+</html>

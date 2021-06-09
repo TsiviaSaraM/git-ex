@@ -1,0 +1,16 @@
+/*MEME*/
+.canvas-container {
+    height: 400px;
+    width: 400px;
+    z-index: 1;
+    background-color: #3629e7;
+    margin: 0 auto;
+}
+
+canvas {
+    background-color: #ffeef4;
+    height: 100%;
+    width: 100%;
+    display: block; /*WHY???*/
+    margin: 0 auto; /*WHY???*/
+}
