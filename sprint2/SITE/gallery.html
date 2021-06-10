@@ -45,11 +45,12 @@
                 </div>
 
                 <div class="control-box flex flex-col">
-                    <input type="text" class="text-input" oninput="onEditText(this.value)" onmousedown="onAddLine(this.value)">
+                    <input type="text" class="text-input" oninput="onEditText(this.value)" onmousedown="onAddLine(this.value)" onmouseout="onEndEditText()">
                     
                     <div class="row2 flex">
-                        <button class="vertivalmove" onclick="onVerticalMove()"></button>
-                        <button onclick="onAddLine()" class="add-text-area">+</button>
+                        <button class="vertivalmove" onclick="onVerticalMove(-1)">move up</button>
+                        <button class="vertivalmove" onclick="onVerticalMove(1)">move down</button>
+                        <button onclick="onSwitchLine()" class="add-text-area">Switch btwn lines</button>
                         <button onclick="onRemoveText()">delete</button>
                     </div>
 

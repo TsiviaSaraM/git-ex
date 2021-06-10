@@ -26,21 +26,21 @@ function createMeme(id){
         selectedImgId: id, 
         selectedLineIdx: 0, 
         lines: [ { 
-        text: 'I', 
+        text: 'I am here', 
         size: 20, 
         align: 'left', 
-        color: 'white' ,
+        color: 'hotpink' ,
         stroke: 'black',
         posX: 150,
         posY: 10,
-        // }, { 
-        //     text: 'I', 
-        //     size: 20, 
-        //     align: 'center', 
-        //     color: 'white' ,
-        //     stroke: 'black',
-        //     posX: 150,
-        //     posY: 150,
+        }, { 
+            text: 'I am there', 
+            size: 20, 
+            align: 'left', 
+            color: 'pink' ,
+            stroke: 'black',
+            posX: 150,
+            posY: 150,
             }] 
     }
 }
@@ -81,8 +81,8 @@ function setLineDrag(val){
     gIsDrag = val;
 }
 
-function setCurrLine(currLineIdx){
-    gMeme.selectedLineIdx = currLineIdx;
+function setCurrLine(selectedLineIdx){
+    gMeme.selectedLineIdx = selectedLineIdx;
 }
 
 // function moveLine(pos) {
@@ -112,8 +112,8 @@ function addLine(){
     gMeme.lines.push(DEFAULT_EMPTY_LINE);
     var line = getCurrLine();
     if (gMeme.lines.length === 1) line.posY = 10;
-    else if (gMeme.lines.length === 2) line.posY = 140;
-    else line.posY = 75;
+    else if (gMeme.lines.length === 2) line.posY = 175;
+    else line.posY = 200;
     console.log('line length', gMeme.lines.length );
     console.log('...line added at x: y', line.posX, line.posY);
 }
@@ -123,14 +123,20 @@ function editText(newTxt){
     line.text = newTxt;
 }
 
+function switchLine() {
+    gMeme.selectedLineIdx += 1;
+    if (gMeme.selectedLineIdx >= gMeme.lines.length) gMeme.selectedLineIdx = 0;
+}
+
 function editSize(direction){
     var line = getCurrLine();
-    line.size += direction;
+    line.size += direction * 5;
     console.log('...new line size', line.size);
 }
 
 function removeText() {
     gMeme.lines.splice(gMeme.selectedLineIdx, 1);
+    gMeme.selectedLineIdx = -1;
 }
 
 /**********GETTERS************* */

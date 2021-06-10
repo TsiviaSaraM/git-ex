@@ -18,7 +18,7 @@ function onInit(){
 
 function renderImages() {
     var strHTML = '';
-    for (var i = 1; i <=     IMG_COUNT; i++) {
+    for (var i = 1; i <=IMG_COUNT; i++) {
         strHTML += `<img onclick="onSelectImg(this)" src="img/memes/${i}.jpg" data-id=${i} alt="">`
     }
 
@@ -47,21 +47,40 @@ function renderCanvas() {
     var img=new Image();
     img.src = 'img/memes/' + gMeme.selectedImgId + '.jpg';
     img.onload=function(){
-        // debugger;
         gCtx.drawImage(img,0,0,gElCanvas.width,gElCanvas.height);
-      
-      gMeme.lines.forEach(function(line) {  
-          console.log('line to render', line);
-        gCtx.font = line.size + 'px'// + ' ' + line.font;
-        gCtx.textAlign = line.align;
-        gCtx.fillStyle = line.color;
-        gCtx.strokeStyle = line.stroke;
-        gCtx.fillText(line.text, line.posX, line.posY);
-        gCtx.strokeText(line.text, line.posX, line.posY);
+        debugger;
+        gMeme.lines.forEach(function(line, index) {  
+            if (gMeme.selectedLineIdx === index) {
+                renderSelectText(line);
+            }
+
+            gCtx.font = line.size + 'px'// + ' ' + line.font;
+            
+            gCtx.textAlign = line.align;
+            gCtx.fillStyle = line.color;
+            gCtx.strokeStyle = line.stroke;
+            gCtx.fillText(line.text, line.posX, line.posY);
+            gCtx.strokeText(line.text, line.posX, line.posY);
       })
     };
+}
 
+function renderSelectText(line) {
+    gCtx.fillStyle = 'orange';
+    gCtx.strokeStyle = 'red';
+    gCtx.beginPath();
+    gCtx.rect(line.posX, line.posY - getHeight(line.text), getWidth(line.text),  getHeight(line.text));
+    gCtx.stroke();
+}
 
+function getWidth(text){
+    var canvasText = gCtx.measureText(text);
+    return canvasText.width;
+}
+
+function getHeight(text){
+    var canvasText = gCtx.measureText(text);
+    return canvasText.fontBoundingBoxAscent + canvasText.fontBoundingBoxDescent;
 }
 
 /***************EDIT CONTROL BUTTONS************** */
@@ -73,24 +92,31 @@ function onAddLine(){
 function onEditText(text){
     var line = getCurrLine();
     editText(text);
-    gCtx.font = line.size + 'px' + ' ' + line.font;
-    gCtx.textAlign = line.align;
-    gCtx.fillStyle = line.color;
-    gCtx.strokeStyle = line.stroke;
-    gCtx.fillText(text, line.posX, line.posY);
-    gCtx.strokeText(text, line.posX, line.posY);
+    renderCanvas();
     
 }
 
-function onVerticalMove() {
-    console.log('editing vert pos...');
+function onEndEditText(){
+    // console.log('ending edit text...');
+}
+
+//TODO make size change while mouse remains pressed, using onmouseup
+function onVerticalMove(direction) {
     var line = getCurrLine();
-    line.posY++;
+    line.posY += (direction * 10)
+    console.log('editing vert pos...', line.posY);
+    renderCanvas();
+}
+
+function onSwitchLine() {
+    switchLine();
     renderCanvas();
 }
 
 function onRemoveText(){
-    console.log('editing...');
+    console.log('removing...');
+    removeText();
+    renderCanvas();
 }
 
 function onEditSize(direction) {
@@ -133,9 +159,9 @@ function onDown(ev){
     //clear input box
     document.querySelector('.text-input').value = '';
     const pos = getEvPos(ev);
-    var currLineIdx = getClickedLine(pos)
-    if (currLineIdx === -1) return;
-    setCurrLine(currLineIdx);
+    var selectedLineIdx = getClickedLine(pos)
+    if (selectedLineIdx === -1) return;
+    setCurrLine(selectedLineIdx);
     setLineDrag(true);
     gStartPos = getEvPos(ev);
     console.log('moving text...');
