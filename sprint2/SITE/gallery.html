@@ -16,9 +16,9 @@
 
             <nav>
                 <ul class="flex">
-                    <li class="flex"><a href="">Gallery</a> </li>
-                    <li class="flex"><a href="">Memes</a> </li>
-                    <li class="flex"><a href="">Abouts</a> </li>
+                    <li class="flex"><a href="#gallery">Gallery</a> </li>
+                    <!-- <li class="flex"><a href="">Memes</a> </li> -->
+                    <li class="flex"><a href="#about">Abouts</a> </li>
 
                 </ul>
             </nav>
@@ -27,14 +27,13 @@
         
         <section class="search flex">
             <input class="search-box" type="search" oninput="onSearch(this.value)" placeholder="search">
-            <!-- <button class="btn-search" >Search</button> -->
             <div class="kws flex"></div>
-            <p class="more" onclick="onShowAllKws">more...</p>
+            <!-- <p class="more" onclick="onShowAllKws">more...</p> -->
         </section>
 
         <main>
             
-            <div class="grid-container img-container">
+            <div class="grid-container img-container" id="gallery">
                 <img onclick="onSelectImg(this)" src="img/memes/1.jpg" data-id=1 alt="">
                 <img onclick="onSelectImg(this)" src="img/memes/2.jpg" data-id=2 alt="">
                 <img onclick="onSelectImg(this)" src="img/memes/3.jpg" data-id=3 alt="">
@@ -49,35 +48,34 @@
                     <input type="text" class="text-input" oninput="onEditText(this.value)" onmousedown="onAddLine(this.value)" onmouseout="onEndEditText()">
                     
                     <div class="row2 flex">
-                        <button class="vertivalmove" onclick="onVerticalMove(-1)">move up</button>
-                        <button class="vertivalmove" onclick="onVerticalMove(1)">move down</button>
-                        <button onclick="onSwitchLine()" class="add-text-area">Switch btwn lines</button>
+                        <button class="vertivalmove" onclick="onVerticalMove(-1)"><img src="img/ICONS/moveUp.png" alt=""></button>
+                        <button class="vertivalmove" onclick="onVerticalMove(1)"><img src="img/ICONS/moveDown.png" alt=""></button>
+                        <button onclick="onSwitchLine()" class="add-text-area"><img src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
                     </div>
                     
                     <div class="row3 flex">
-                        <button onclick="onRemoveText()">delete</button>
-                        <button onclick="onEditSize(1)">A+</button>
-                        <button onclick="onEditSize(-1)">A</button>
+                        <button onclick="onRemoveText()"><img src="img/ICONS/trash.png" alt=""></button>
+                        <button onclick="onEditSize(1)"><img src="img/ICONS/increase font - icon.png" alt=""></button>
+                        <button onclick="onEditSize(-1)"><img src="img/ICONS/decrease font - icon.png" alt=""></button>
                         <!-- <button onclick="onEditJustifyText('LEFT')"></button>
                         <button onclick="onEditJustifyText('CENTER')"></button>
                         <button onclick="onEditJustifyText('RIGHT')"></button> -->
 
                     </div>
                     <div class="row4 flex">
-                        <select name="font" placeholder="font">
+                        <!-- <select name="font" placeholder="font">
                             <option value="impact">Impact</option>
                             <option value="arial">Arial</option>
                             <option value="helvetica">Helvetica</option>
-                        </select>
-                        <button onclick="onEditFont(el)"></button>
-                        <!-- <input onclick="onEditStroke(this)" type="color"> -->
+                        </select> -->
                         <input type="color" class="fill-color" onclick="onEditFill(this)">
                         <input type="color" onclick="onEditStroke(this)">
-                            <!-- <button ><input onclick="onEditStroke(this)" type="color"></button> -->
-                        <button onclick="onEditFill(this)"></button>
                     </div>
-                    <div class="row5 flex">STICKERS</div>
-                    <div class="row6 flex" onclick="onOpenShareOptions()"><button>Share</button></div>
+                    <!-- <div class="row5 flex">STICKERS</div> -->
+                    <div class="row6 flex" >
+                        <button onclick="onOpenShareOptions()">Share</button>
+                        <button onclick="onCloseEditor()">Close</button>
+                    </div>
                     
                 </div>
     
@@ -90,17 +88,17 @@
                     <a href="" class="download" onclick=onDownload() download="canvas.jpeg">Download</a>
             </section>
 
-            <section class="about flex">
+            <section class="about flex" id="about">
                 <img src="img/monica.png" alt="monica" class="monica">
                 <div class="about-text flex flex-col">
                     <p class="bold">Monica Geller</p>
                     <p>is a fictional character, one of the six main characters who apears</p>
-                    <ul class="social flex clean-list">
-                        <!-- <li class="facebook social-link flex"><a href="#" ><img src="img/facebook.png" alt=""></a></li> -->
+                    <!-- <ul class="social flex clean-list">
+                        <li class="facebook social-link flex"><a href="#" ><img src="img/facebook.png" alt=""></a></li>
                         <li class="linkedin social-link flex"><a href="#" ></a></li>
                         <li class="facebook social-link flex"><a href="#"></a></li>
                         <li class="github social-link flex"><a href="#" ></a></li>
-                    </ul>
+                    </ul> -->
 
                     </div>
                 </div>

@@ -17,10 +17,6 @@ function onInit(){
 
 function renderImages() {
     var strHTML = '';
-    // gImages.forEach(function(image){
-    //     console.log(image);
-    //     strHTML += `<img onclick="onSelectImg(this)" src="${image.url}" data-id=${image.id} alt="">`
-    // })
 
     var strHTML = gImages.reduce(function(strHTML, image){
         if (gSearch === '' || image.keywords.includes(gSearch)) 
@@ -28,11 +24,7 @@ function renderImages() {
         else return strHTML;
     }, '')
 
-
-    // for (var i = 1; i <=IMG_COUNT; i++) {
-    //     strHTML += `<img onclick="onSelectImg(this)" src="img/memes/${i}.jpg" data-id=${i} alt="">`
-    // }
-
+    
     document.querySelector('.img-container').innerHTML = strHTML;
 }
 
@@ -41,6 +33,8 @@ function onSelectImg(elImg){
     
     document.querySelector('.editor').style.display = 'flex';
     document.querySelector('.img-container').style.display = 'none';
+    document.querySelector('.about').style.display = 'none';
+    document.querySelector('.search').style.display = 'none';
     gElCanvas = document.querySelector('canvas');
     gCtx = gElCanvas.getContext('2d');
     resizeCanvas();
@@ -157,6 +151,13 @@ function onCloseShareOptions() {
     document.querySelector('.share-options').style.display = 'none';
     document.querySelector('.editor').style.display = 'flex';
     document.querySelector('.about').style.display = 'flex';
+}
+
+function onCloseEditor(){
+    document.querySelector('.editor').style.display = 'none';
+    document.querySelector('.img-container').style.display = 'grid';
+    document.querySelector('.about').style.display = 'flex';
+    document.querySelector('.search').style.display = 'flex';
 }
 
 function onShare(){

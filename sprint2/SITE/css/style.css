@@ -38,6 +38,9 @@ li, ul {
 
 main {
     background-color: #E3E3E3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .conatiner {
@@ -67,8 +70,8 @@ header {
     height: 66px;
     width: 100%;
     align-items: center;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
     position: fixed;
     z-index: 2;
 }
@@ -98,25 +101,39 @@ img {
 
 /*SEARCH*/
 .search {
-    padding-left: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
     line-height: 100px;
+    flex-direction: column;
 }
 
 .search .kws {
     flex: 1;
-    justify-content: flex-end;
-    gap: 3rem;
-    padding-left: 54px;
-}
-
-.search .more {
-    margin-left: 32px;
+    justify-content:space-between;
+    gap: 2rem;
 }
 
 .search .search-box {
-    height: 37px;
     vertical-align: middle;
-    margin-top: 37px;
+    margin-top: 3px;
+    height: 37px;
+}
+
+/* 
+.search img {
+    height: 20px;
+} */
+
+@media screen and (min-width: 740px) {
+        .search {
+            padding-left: 50px;  
+            padding-right: 50px;        
+            flex-direction: row;
+        }
+        .search .kws {
+            justify-content: flex-end;
+        }
+    
 }
 
 /*MEMES GRID*/
@@ -126,53 +143,21 @@ img {
     margin-bottom: 77px;
     display: grid;
     justify-content: center;
-    padding-left: 50px;
-    padding-right: 50px;
-    /* grid-template-columns: 1fr 1fr; */
-    /* grid-template-columns: repeat(auto-fill, 1fr); */
-    grid-template-rows: repeat(auto-fill 1fr);
+    padding-left: 10px;
+    padding-right: 10px;
+    grid-template-rows: repeat(auto-fit 5.3rem);
     gap: 10px 10px;
 }
 
 .img-container img {
     display: flex;
+    width: 100%;
+    height: 100%;
 }
 
 
 /**********************ABOUT**************/
 
-
-.about {
-    justify-content: center;
-    padding-top: 77px;
-    padding-bottom: 166px;
-    background-color: white;
-    flex-direction: column;
-    align-items: center;/**/
-    text-align: center;/**/
-
-}
-.about .monica {
-    height:158px;/**/
-    width: 158px;/**/
-    border-radius: 100%;
-    object-fit: cover;
-    margin-bottom: 18px;
-}
-
-.about .about-text {
-    font-size: 15px;/**/
-    justify-content: center;
-    margin-bottom: 1em;
-    margin-left: 39px;
-}
-
-.about .bold{
-    font-size: 22px;/**/
-    color: #FF7F00;
-}
-
-@media screen and (min-width: 740px){
     .about {
         
         justify-content: center;
@@ -180,6 +165,7 @@ img {
         padding-bottom: 166px;
         background-color: white;
         /* background-color: yellowgreen; */
+        width: 100%;
     }
     .about .monica {
         height:323px;
@@ -200,7 +186,48 @@ img {
         font-size: 25px;
 
     }
+
+    @media screen and (max-width: 740px){
+        .about .monica {
+            height:323px;/**/
+            width: 323px;/**/
+        }
+    }
+
+@media screen and (max-width: 1200px){
+    
+    .about {
+        justify-content: center;
+        padding-top: 33px;
+        padding-bottom: 166px;
+        background-color: white;
+        flex-direction: column;
+        align-items: center;/**/
+        text-align: center;/**/
+    
+    }
+    .about .monica {
+        height:158px;/**/
+        width: 158px;/**/
+        border-radius: 100%;
+        object-fit: cover;
+        margin-bottom: 18px;
+    }
+    
+    .about .about-text {
+        font-size: 15px;/**/
+        justify-content: center;
+        margin-bottom: 1em;
+        margin-left: 39px;
+    }
+    
+    .about .bold{
+        font-size: 22px;/**/
+        color: #FF7F00;
+    }
 }
+
+
 /*************FOOTER*****************/
 footer {
     padding-top: 78px;
@@ -219,16 +246,18 @@ footer p {
 @media screen and (min-width: 740px) {
 
     header {
-        /* background-color: indigo; */
+        padding-left: 50px;
+        padding-right: 50px;
     }
-    .container {
-        max-width: 1201px;
-    }
+
 
     .img-container {
 
         grid-template-columns: 1fr 1fr;
         gap: 19px 19px;
+        text-align: center;
+        padding-left: 50px;
+        padding-right: 50px;
     }
     
 }
@@ -236,16 +265,16 @@ footer p {
 @media screen and (min-width: 1200px) {
 
     header {
-        /* background-color: indigo; */
+        /* background-color: green; */
     }
     .container {
-        max-width: 1201px;
+        max-width: 1200px;
     }
 
     .img-container {
 
         grid-template-columns: 1fr 1fr 1fr;
-        gap: 19px 19px;
+        width: 100%;
     }
     
 }

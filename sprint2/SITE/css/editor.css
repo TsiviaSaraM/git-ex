@@ -36,7 +36,10 @@ canvas {
     gap: 5px;
 }
 
-
+.control-box .flex img {
+    width:61px;
+    height: 61px;
+}
 
 /**********SHARE SECTION************/
 .share-options {
@@ -195,6 +198,11 @@ justify-content: space-evenly;
                     .control-box .flex {
                         justify-content: center;
                         gap: 5px;
+                    }
+
+                    .control-box .flex img {
+                        width:41px;
+                        height: 41px;
                     }
 
                     /**********SHARE SECTION************/

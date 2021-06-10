@@ -65,6 +65,8 @@ function renderKws() {
         var fontSize = getFontSize(kw);
         strHTML += `<div style="font-size:${fontSize}px;">${kw} </div>`;
     })
+
+    strHTML += `<p class="more" onclick="onShowAllKws">more...</p>`
     document.querySelector('.kws').innerHTML = strHTML;
 }
 
