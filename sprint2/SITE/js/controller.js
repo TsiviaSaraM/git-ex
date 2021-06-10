@@ -48,7 +48,6 @@ function renderCanvas() {
     img.src = 'img/memes/' + gMeme.selectedImgId + '.jpg';
     img.onload=function(){
         gCtx.drawImage(img,0,0,gElCanvas.width,gElCanvas.height);
-        debugger;
         gMeme.lines.forEach(function(line, index) {  
             if (gMeme.selectedLineIdx === index) {
                 renderSelectText(line);

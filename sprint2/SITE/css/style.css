@@ -72,6 +72,7 @@ header {
     padding-left: 50px;
     padding-right: 50px;
     position: fixed;
+    z-index: 2;
 }
 
 .header-cover {
@@ -162,7 +163,7 @@ img {
         padding-top: 77px;
         padding-bottom: 166px;
         background-color: white;
-        background-color: yellowgreen;
+        /* background-color: yellowgreen; */
     }
     .about .monica {
         height:323px;
@@ -202,7 +203,24 @@ footer p {
 @media screen and (min-width: 740px) {
 
     header {
-        background-color: indigo;
+        /* background-color: indigo; */
+    }
+    .container {
+        max-width: 1201px;
+    }
+
+    .img-container {
+
+        grid-template-columns: 1fr 1fr;
+        gap: 19px 19px;
+    }
+    
+}
+
+@media screen and (min-width: 1200px) {
+
+    header {
+        /* background-color: indigo; */
     }
     .container {
         max-width: 1201px;
@@ -214,13 +232,4 @@ footer p {
         gap: 19px 19px;
     }
     
-}
-
-
-
-/* @media screen and (min-width: 1201px) {
-    .container {
-        max-width: 1201px;
-        background-color: hotpink;
-    } */
 }
