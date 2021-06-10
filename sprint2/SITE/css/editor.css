@@ -14,6 +14,8 @@
 .canvas-container {
     width: 40vw;
     height: 40vw;
+    /* width: 543px;
+    height: 543px; */
     z-index: 1;
     background-color: #3629e7;
     margin: 0 0;
@@ -28,16 +30,12 @@ canvas {
     margin: 0 auto; /*WHY???*/
 }
 
-.control-box {
-    /* background-color: indigo; */
-
-
-}
 
 .control-box .flex {
     justify-content: center;
     gap: 5px;
 }
+
 
 
 /**********SHARE SECTION************/
@@ -52,6 +50,7 @@ canvas {
     top: 70px;
     left: 20px;
     padding: 237px 123px;
+    border: 1px solid #FF7F00;
     
 }
 
@@ -78,3 +77,165 @@ justify-content: space-evenly;
     padding-top: 2rem;
     position: sticky;
 } */
+
+
+@media screen and (max-width: 850px) {
+                /*MEME*/
+            .editor { /*flex*/
+                /* display: none; */
+                
+                background-color: hotpink;
+                padding-top: 24px;
+                padding-bottom: 21px;
+                padding-left:8px;/**/
+                gap: 97px;
+                gap: 8vw;
+                justify-content: center
+            }
+
+            .canvas-container {
+                background-color: red;
+                width: 40vw;/**/
+                height: 40vw;/**/
+                z-index: 1;
+                background-color: #3629e7;
+                margin: 0 0;
+                
+            }
+
+            canvas {
+                background-color: #ffeef4;
+                height: 100%;
+                width: 100%;
+                display: block; /*WHY???*/
+                margin: 0 auto; /*WHY???*/
+            }
+
+            .control-box .flex {
+                justify-content: center;
+                gap: 5px;
+            }
+            
+            /**********SHARE SECTION************/
+            .share-options {
+                display: none;
+                height: 534px;
+                width: 534px;
+                /* margin-right: -267px; */
+                background: white;
+                position: fixed;
+                z-index: 1;
+                top: 70px;
+                left: 20px;
+                padding: 237px 123px;
+                
+            }
+
+            /* .share .flex-container{
+                
+            justify-content: space-evenly;
+            } */
+
+            .share-options .share, .download, .close {
+                background-color: #FF7F00;
+                color: white;
+                border-style: none;
+                border-radius: 10px;
+                height: 50px;
+                width: 100px;
+                margin-right: 1rem;
+                text-align: center;
+                vertical-align: middle; 
+                line-height: 50px;
+            }
+
+
+}
+
+
+@media screen and (max-width: 850px) {
+                        /*MEME*/
+                    .editor { /*flex*/
+                        /* display: none; */
+                        
+                        background-color: yellowgreen;
+                        padding-top: 24px;
+                        padding-bottom: 21px;
+                        padding-left:0px;/**//*+*/
+                        gap: 97px;
+                        gap: 8vw;/**/
+                        gap: 3px;/*+*/
+                        justify-content: center;
+                        flex-direction: column;/*+*/
+                        align-items: center/*++*/
+                    }
+
+                    .canvas-container {
+                        background-color: red;
+                        width: 300px;/**/
+                        height: 300px;/**/
+                        z-index: 1;
+                        background-color: #3629e7;
+                        margin: 0 0;
+                        
+                    }
+
+                    canvas {
+                        background-color: #ffeef4;
+                        height: 100%;
+                        width: 100%;
+                        display: block; /*WHY???*/
+                        margin: 0 auto; /*WHY???*/
+                    }
+
+                    .control-box {
+                        gap: 5px;
+                    }
+
+                    .control-box .flex {
+                        justify-content: center;
+                        gap: 5px;
+                    }
+
+                    /**********SHARE SECTION************/
+                    .share-options {
+                        display: none;
+                        height: 534px;
+                        width: 213px; /*+*/
+                        /* margin-right: -267px; */
+                        background: white;
+                        position: fixed;
+                        z-index: 1;
+                        top: 70px;
+                        left: 20px;
+                        padding: 37px 37px;/*+*/
+                        gap: 9px;/*+*/
+                        align-items: center/*+*/
+                        
+                    }
+                    
+                    .share-options .flex {
+                        flex-direction: column;/*+*/
+
+                    }
+
+                    /* .share .flex-container{
+                        
+                    justify-content: space-evenly;
+                    } */
+
+                    .share-options .share, .download, .close {
+                        background-color: #FF7F00;
+                        color: white;
+                        border-style: none;
+                        border-radius: 10px;
+                        height: 50px;
+                        width: 100px;
+                        margin-right: 1rem;
+                        text-align: center;
+                        vertical-align: middle; 
+                        line-height: 50px;
+                    }
+
+
+}
