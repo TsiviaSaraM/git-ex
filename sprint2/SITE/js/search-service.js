@@ -62,7 +62,6 @@ function renderKws() {
     var strHTML = '';
     var kws = prepareCommonKws();
     kws.forEach(function(kw){
-        console.log(kw);
         var fontSize = getFontSize(kw);
         strHTML += `<div style="font-size:${fontSize}px;">${kw} </div>`;
     })

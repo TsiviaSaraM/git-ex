@@ -11,9 +11,7 @@ function onInit(){
     console.log('init...');
     renderKws();
     renderImages();
-    gElCanvas = document.querySelector('canvas');
-    gCtx = gElCanvas.getContext('2d');
-    addListeners();
+    
 
 }
 
@@ -45,16 +43,16 @@ function onSelectImg(elImg){
     document.querySelector('.img-container').style.display = 'none';
     gElCanvas = document.querySelector('canvas');
     gCtx = gElCanvas.getContext('2d');
-
+    resizeCanvas();
     var id = elImg.dataset.id;
     createMeme(id);
     renderCanvas();
+    addListeners();
     //show the canvas
 
 }
 
 function renderCanvas() {
-    console.log('rendering...');
     gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height);
     
     var img=new Image();
@@ -89,16 +87,6 @@ function renderSelectText(line) {
     gCtx.beginPath();
     gCtx.rect(line.posX, line.posY - getHeight(line.text), getWidth(line.text),  getHeight(line.text));
     gCtx.stroke();
-}
-
-function getWidth(text){
-    var canvasText = gCtx.measureText(text);
-    return canvasText.width;
-}
-
-function getHeight(text){
-    var canvasText = gCtx.measureText(text);
-    return canvasText.fontBoundingBoxAscent + canvasText.fontBoundingBoxDescent;
 }
 
 /***************EDIT CONTROL BUTTONS************** */
@@ -223,13 +211,10 @@ function onMove(ev){
 
     if (gIsDrag) {
         const pos = getEvPos(ev);
-        console.log('gStartPos:', gStartPos)
-        console.log('pos:', pos)
         const dx = pos.x - gStartPos.x
         const dy = pos.y - gStartPos.y
         moveLine(dx, dy);
         gStartPos = pos;
-        console.log('about to render');
         renderCanvas();
     }
 }
@@ -255,3 +240,38 @@ function getEvPos(ev){
     return pos
 }
 
+
+
+function getWidth(text){
+    var canvasText = gCtx.measureText(text);
+    return canvasText.width;
+}
+
+function getHeight(text){
+    var canvasText = gCtx.measureText(text);
+    return canvasText.fontBoundingBoxAscent + canvasText.fontBoundingBoxDescent;
+}
+
+//txtWidth txtHeight is accurate, clkPos is accurate
+function getClickedLine(clkPos){
+    console.log('checking if clicked');
+    return gMeme.lines.findIndex(function(line){
+        var xBegin = line.posX;
+        var xEnd = getWidth(line.text) + xBegin;
+        var yBegin = line.posY - getHeight(line.text)
+        var yEnd = getHeight(line.text) + yBegin;
+
+        return xBegin <= clkPos.x && clkPos.x <= xEnd && yBegin <= clkPos.y && clkPos.y <= yEnd;
+
+        // gCtx.rect(line.posX, line.posY - getHeight(line.text), getWidth(line.text),  getHeight(line.text));
+    })
+    
+}
+
+
+function resizeCanvas() {
+    console.log('resizing...');
+    var elContainer = document.querySelector('.canvas-container');
+    gElCanvas.width = elContainer.offsetWidth;
+    gElCanvas.height = elContainer.offsetHeight;   
+}

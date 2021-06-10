@@ -25,7 +25,7 @@ function createMeme(id){
         selectedLineIdx: 0, 
         lines: [ { 
         text: 'I am here', 
-        size: 20, 
+        size: 60, 
         align: 'left', 
         color: 'hotpink' ,
         stroke: 'black',
@@ -48,31 +48,6 @@ function setCurrImg(){
 }
 
 
-//txtWidth txtHeight is accurate, clkPos is accurate
-function getClickedLine(clkPos){
-    console.log('checking if clicked');
-    return gMeme.lines.findIndex(function(line){
-        var canvasText = gCtx.measureText(line.txt)
-        var txtWidth = canvasText.width;
-        var txtHeight = canvasText.fontBoundingBoxAscent + canvasText.fontBoundingBoxDescent;
-        // console.log('clicked pos:', clkPos.x);
-        // console.log('gLine pos beg:', line.posX);
-        // console.log('gLine pos end:', line.posX + txtWidth);
-        // console.log('txtHeight', txtHeight);
-
-        console.log('clicked pos:', clkPos.x, clkPos.y);
-        var xBegin = line.posX;
-        var xEnd = line.posX + txtWidth;
-        var yBegin = -canvasText.fontBoundingBoxDescent + line.posY;
-        var yEnd = line.posY + canvasText.fontBoundingBoxAscent;
-        console.log('testing x,y:',xBegin,xEnd,'**',yBegin,  yEnd, xBegin <= clkPos.x && clkPos.x <= xEnd && yBegin <= clkPos.y && clkPos.y <= yEnd);
-        // return clkPos.x > line.posX && clkPos.x < (line.posX + txtWidth) 
-        //     && clkPos.y > line.posY && clkPos.y < (line.posY + txtHeight);
-
-        return xBegin <= clkPos.x && clkPos.x <= xEnd && yBegin <= clkPos.y && clkPos.y <= yEnd;
-    })
-    
-}
 
 
 function setLineDrag(val){
@@ -92,15 +67,8 @@ function setCurrLine(selectedLineIdx){
 
 function moveLine(dx, dy) {
     var currLine = getCurrLine();
-    console.log('currLine.posX:', currLine.posX)
-    console.log('currLine.posY:', currLine.posY)
-    console.log('dy:', dy)
-    console.log('dx:', dx)
     currLine.posX += dx
     currLine.posY += dy
-    console.log('currLine.posX:', currLine.posX)
-    console.log('currLine.posY:', currLine.posY)
-
 }
 
 /*************EDITING A SPECIFIC MEME************ */
