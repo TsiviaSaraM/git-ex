@@ -58,7 +58,7 @@ function renderCanvas() {
                 renderSelectText(line);
             }
 
-            gCtx.font = line.size + 'px'// + ' ' + line.font;
+            gCtx.font = line.size + 'px impact'
             
             gCtx.textAlign = line.align;
             gCtx.fillStyle = line.color;
@@ -133,16 +133,19 @@ function onEditFont(el){
 }
 function onEditStroke(el){
     console.log('editing...', el);
+    editStroke(el.value);
+    renderCanvas();
 }
 function onEditFill(el){
     console.log('editing...', el);
-    
+    editFill(el.value);
+    renderCanvas();
 }
 
 function onOpenShareOptions(){
     console.log('opening share options...');
     document.querySelector('.share-options').style.display = 'flex';
-    document.querySelector('.editor').style.display = 'none';
+    // document.querySelector('.editor').style.display = 'none';
     document.querySelector('.about').style.display = 'none';
 }
 
@@ -171,10 +174,6 @@ function onDownload() {
 
 /***************ADD LISTENERS************* */
 
-function renderLine() {
-
-}
-
 function addListeners(){
     gElCanvas.addEventListener('mousedown', onDown);
     gElCanvas.addEventListener('touchstart', onDown);
@@ -199,14 +198,6 @@ function onDown(ev){
     // gStartPos = pos;
 }
 
-// function onMove(ev){
-//     if (gIsDrag) {
-//         const pos = getEvPos(ev);
-//         moveLine(pos);
-//         console.log('about to render');
-//         renderCanvas();
-//     }
-// }
 
 function onMove(ev){
 

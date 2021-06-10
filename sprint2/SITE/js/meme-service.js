@@ -2,7 +2,7 @@
 const DEFAULT_EMPTY_LINE = {
     text: '',
     size: 20, 
-    font: 'ariel',
+    font: 'font',
     align: 'left', 
     color: 'white' ,
     stroke: 'black',
@@ -97,12 +97,24 @@ function switchLine() {
 function editSize(direction){
     var line = getCurrLine();
     line.size += direction * 5;
-    console.log('...new line size', line.size);
+    console.log('...new line size', line);
 }
 
 function removeText() {
     gMeme.lines.splice(gMeme.selectedLineIdx, 1);
     gMeme.selectedLineIdx = -1;
+}
+
+function editFill(color){
+    var line = getCurrLine();
+    line.color = color;
+    console.log('new color', line.color);
+}
+
+function editStroke(color){
+    var line = getCurrLine();
+    line.stroke = color;
+    console.log('new color', line.stroke);
 }
 
 /**********GETTERS************* */
