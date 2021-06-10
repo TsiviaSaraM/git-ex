@@ -1,10 +1,23 @@
 /*MEME*/
+.editor { /*flex*/
+    display: none;
+ 
+    /* background-color: hotpink; */
+    padding-top: 24px;
+    padding-bottom: 21px;
+    padding-left:11.4vw;
+    gap: 97px;
+    gap: 8vw;
+    justify-content: center
+}
+
 .canvas-container {
-    height: 400px;
-    width: 400px;
+    width: 40vw;
+    height: 40vw;
     z-index: 1;
     background-color: #3629e7;
-    margin: 0 auto;
+    margin: 0 0;
+    
 }
 
 canvas {
@@ -13,4 +26,15 @@ canvas {
     width: 100%;
     display: block; /*WHY???*/
     margin: 0 auto; /*WHY???*/
+}
+
+.control-box {
+    /* background-color: indigo; */
+
+
+}
+
+.control-box .flex {
+    justify-content: center;
+    gap: 5px;
 }

@@ -23,7 +23,14 @@
                 </ul>
             </nav>
         </header>
+        <div class="header-cover"></div>
         
+        <section class="search flex">
+            <input type="text">
+            <p>word1 word2 word3 word4</p>
+            <a href="">more...</a>
+        </section>
+
         <main>
             
             <div class="grid-container img-container">
@@ -31,20 +38,22 @@
                 <img onclick="onSelectImg(this)" src="img/memes/2.jpg" data-id=2 alt="">
                 <img onclick="onSelectImg(this)" src="img/memes/3.jpg" data-id=3 alt="">
             </div>
+
             <section class="editor flex">
                 <div class="canvas-container">
-                    <canvas></canvas>
+                    <canvas width="400" height="400" style="outline:1px solid green"></canvas>
                 </div>
-                <div class="control-box flex-col">
+
+                <div class="control-box flex flex-col">
                     <input type="text" class="text-input" oninput="onEditText(this.value)" onmousedown="onAddLine(this.value)">
-                    >
-                    <div class="row2">
+                    
+                    <div class="row2 flex">
                         <button class="vertivalmove" onclick="onVerticalMove()"></button>
                         <button onclick="onAddLine()" class="add-text-area">+</button>
                         <button onclick="onRemoveText()">delete</button>
                     </div>
 
-                    <div class="row3">
+                    <div class="row3 flex">
                         <button onclick="onEditSize(1)">A+</button>
                         <button onclick="onEditSize(-1)">A</button>
                         <button onclick="onEditJustifyText('LEFT')"></button>
@@ -52,26 +61,50 @@
                         <button onclick="onEditJustifyText('RIGHT')"></button>
 
                     </div>
-                    <div class="row4">
-                        <select name="color" placeholder="font">
+                    <div class="row4 flex">
+                        <select name="font" placeholder="font">
                             <option value="impact">Impact</option>
                             <option value="arial">Arial</option>
                             <option value="helvetica">Helvetica</option>
                         </select>
                         <button onclick="onEditFont(el)"></button>
                         <!-- <input onclick="onEditStroke(this)" type="color"> -->
+                        <input type="color" class="fill-color" onclick="onEditFill(this)">
                         <button onclick="onEditStroke(this)" >color</button>
                         <!-- <button ><input onclick="onEditStroke(this)" type="color"></button> -->
                         <button onclick="onEditFill(this)"></button>
                     </div>
-                    <div class="row5">STICKERS</div>
-                    <div class="row6"><button>Share</button></div>
+                    <div class="row5 flex">STICKERS</div>
+                    <div class="row6 flex"><button>Share</button></div>
                     
                 </div>
     
             </section>
 
+            <section class="about flex">
+                <img src="img/monica.png" alt="monica" class="monica">
+                <div class="about-text flex flex-col">
+                    <p class="bold">Monica Geller</p>
+                    <p>is a fictional character, one of the six main characters who apears</p>
+                    <ul class="social flex clean-list">
+                        <!-- <li class="facebook social-link flex"><a href="#" ><img src="img/facebook.png" alt=""></a></li> -->
+                        <li class="linkedin social-link flex"><a href="#" ></a></li>
+                        <li class="facebook social-link flex"><a href="#"></a></li>
+                        <li class="github social-link flex"><a href="#" ></a></li>
+                    </ul>
+
+                    </div>
+                </div>
+
+            </section>
+            <footer>
+                <h3 class="logo">memgen</h3>
+                <p>all rights reserved 2019</p>
+            </footer>
+
+
         </main>
+
 
     </div>
     <script src="js/meme-service.js"></script>

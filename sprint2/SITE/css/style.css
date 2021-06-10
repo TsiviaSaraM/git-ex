@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
 }
+
 @font-face {
     font-family: montserrat;
     src: url(../fonts/Montserrat-Regular.ttf);
@@ -11,7 +12,7 @@ body {
     margin: 0;
 }
 
-h1 h2 h3 h4 h4 h5 {
+h1, h2, h3, h4, h4, h5, p {
     margin: 0 0;
 }
 
@@ -31,10 +32,18 @@ li, ul {
 .container {
     margin: 0 auto;
     flex-direction: column;
+    max-width: 750px;
 }
 
 main {
     background-color: #E3E3E3;
+    margin-top: 66px;
+    /* position: relative; */
+}
+
+.conatiner {
+    padding: 0 auto;
+    /* max-width: 1201px; */
 }
 
 /*HELPERS*/
@@ -48,15 +57,25 @@ main {
     flex-direction: column;
 }
 
+.bold {
+    font-weight: bold;
+}
+
 /*HEADER*/ /*TODO add hover and active, logo font-family*/
 header {
     background-color: #FF7F00;
     font-family: montserrat;
     font-size: 19px;
     height: 66px;
+    width: 100%;
     align-items: center;
     padding-left: 50px;
-    /* padding-right: 50px; */
+    padding-right: 50px;
+    position: fixed;
+}
+
+.header-cover {
+    height: 66px;
 }
 
 header h3 {
@@ -75,10 +94,6 @@ header nav a {
 }
 
 img {
-    /* width: 100%;
-    height: 100%; */
-    height: 200px;
-    width: 200px;
     object-fit: contain;
 }
 
@@ -88,14 +103,67 @@ img {
 }
 
 /*MEMES GRID*/
-.memes-container {
+.img-container {
     background-color: #E3E3E3;
-    height: 933px;
     margin-bottom: 77px;
     display: grid;
-    gap: 21px;
-    grid-template-columns: repeat(45, 353px);
-    grid-template-columns: repeat(45, 353px);
-    gap: 19px 19px;
+    justify-content: center;
     padding-left: 50px;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-columns: repeat(auto-fill, 1fr); */
+    grid-template-rows: repeat(auto-fill 1fr);
+    gap: 19px 19px;
+}
+
+.img-container img {
+    display: flex;
+}
+
+
+/**********************ABOUT**************/
+.about {
+    justify-content: center;
+    padding-top: 77px;
+    padding-bottom: 166px;
+    background-color: white;
+}
+.about .monica {
+    height:323px;
+    width: 323px;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.about .about-text {
+    font-size: 20px;
+    justify-content: center;
+    margin-bottom: 1em;
+    margin-left: 39px;
+}
+
+.about .bold{
+    font-size: 25px;
+}
+
+
+/*************FOOTER*****************/
+footer {
+    padding-top: 78px;
+    padding-bottom: 73px;
+    background-color: #FF7F00;
+    color: #FFFFFF;
+    text-align: center;
+    
+}
+
+footer p {
+    margin: 0;
+}
+
+
+@media screen and (min-width: 1201px) {
+    .container {
+        max-width: 1201px;
+        background-color: hotpink;
+    }
 }

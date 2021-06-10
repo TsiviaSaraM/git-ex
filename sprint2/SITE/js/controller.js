@@ -28,6 +28,8 @@ function renderImages() {
 function onSelectImg(elImg){
     console.log('img selected...');
     
+    document.querySelector('.editor').style.display = 'flex';
+    document.querySelector('.img-container').style.display = 'none';
     gElCanvas = document.querySelector('canvas');
     gCtx = gElCanvas.getContext('2d');
 
@@ -40,13 +42,16 @@ function onSelectImg(elImg){
 
 function renderCanvas() {
     console.log('rendering...');
+    gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height);
+    
     var img=new Image();
     img.src = 'img/memes/' + gMeme.selectedImgId + '.jpg';
     img.onload=function(){
-    gCtx.drawImage(img,0,0,gElCanvas.width,gElCanvas.height);
+        // debugger;
+        gCtx.drawImage(img,0,0,gElCanvas.width,gElCanvas.height);
       
       gMeme.lines.forEach(function(line) {  
-        console.log('line...');
+          console.log('line to render', line);
         gCtx.font = line.size + 'px'// + ' ' + line.font;
         gCtx.textAlign = line.align;
         gCtx.fillStyle = line.color;
@@ -66,19 +71,22 @@ function onAddLine(){
 }
 
 function onEditText(text){
-    console.log('editing...', text);
     var line = getCurrLine();
     editText(text);
     gCtx.font = line.size + 'px' + ' ' + line.font;
     gCtx.textAlign = line.align;
-        gCtx.fillStyle = line.color;
-        gCtx.strokeStyle = line.stroke;
+    gCtx.fillStyle = line.color;
+    gCtx.strokeStyle = line.stroke;
     gCtx.fillText(text, line.posX, line.posY);
     gCtx.strokeText(text, line.posX, line.posY);
+    
 }
 
 function onVerticalMove() {
-    console.log('editing...');
+    console.log('editing vert pos...');
+    var line = getCurrLine();
+    line.posY++;
+    renderCanvas();
 }
 
 function onRemoveText(){
@@ -87,6 +95,8 @@ function onRemoveText(){
 
 function onEditSize(direction) {
     console.log('editing...');
+    editSize(direction);
+    renderCanvas();
 }
 function onEditJustifyText(value) {
     console.log('editing...');
@@ -100,6 +110,7 @@ function onEditStroke(el){
 }
 function onEditFill(el){
     console.log('editing...', el);
+    
 }
 
 /***************ADD LISTENERS************* */
@@ -121,22 +132,41 @@ function onDown(ev){
     //TODO empty input textbox when I click anywhere outside the box
     //clear input box
     document.querySelector('.text-input').value = '';
-
-    var pos = getEvPos(ev);
-    if (!isLineClicked(pos)) return;
-    console.log('moving text...');
+    const pos = getEvPos(ev);
+    var currLineIdx = getClickedLine(pos)
+    if (currLineIdx === -1) return;
+    setCurrLine(currLineIdx);
     setLineDrag(true);
-    gStartPos = pos;
+    gStartPos = getEvPos(ev);
+    console.log('moving text...');
+    
+    // gStartPos = pos;
 }
 
+// function onMove(ev){
+//     if (gIsDrag) {
+//         const pos = getEvPos(ev);
+//         moveLine(pos);
+//         console.log('about to render');
+//         renderCanvas();
+//     }
+// }
+
 function onMove(ev){
+
     if (gIsDrag) {
         const pos = getEvPos(ev);
-        moveLine(pos);
+        console.log('gStartPos:', gStartPos)
+        console.log('pos:', pos)
+        const dx = pos.x - gStartPos.x
+        const dy = pos.y - gStartPos.y
+        moveLine(dx, dy);
+        gStartPos = pos;
         console.log('about to render');
         renderCanvas();
     }
 }
+
 function onUp(){
     setLineDrag(false);
 }
