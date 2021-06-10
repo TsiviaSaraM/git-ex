@@ -26,7 +26,7 @@
         
         <main>
             
-            <div class="grid-container">
+            <div class="grid-container img-container">
                 <img onclick="onSelectImg(this)" src="img/memes/1.jpg" data-id=1 alt="">
                 <img onclick="onSelectImg(this)" src="img/memes/2.jpg" data-id=2 alt="">
                 <img onclick="onSelectImg(this)" src="img/memes/3.jpg" data-id=3 alt="">
@@ -36,7 +36,7 @@
                     <canvas></canvas>
                 </div>
                 <div class="control-box flex-col">
-                    <input type="text" oninput="onEditText(this.value)" onmousedown="onAddLine(this.value)">
+                    <input type="text" class="text-input" oninput="onEditText(this.value)" onmousedown="onAddLine(this.value)">
                     >
                     <div class="row2">
                         <button class="vertivalmove" onclick="onVerticalMove()"></button>

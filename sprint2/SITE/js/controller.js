@@ -1,5 +1,6 @@
 'use strict'
 const gTouchEvents = ['touchstart', 'touchmove', 'touchend'];
+const IMG_COUNT = 18;
 
 var gElCanvas;
 var gCtx;
@@ -8,10 +9,20 @@ var gStartPos;
 
 function onInit(){
     console.log('init...');
+    renderImages();
     gElCanvas = document.querySelector('canvas');
     gCtx = gElCanvas.getContext('2d');
     addListeners();
 
+}
+
+function renderImages() {
+    var strHTML = '';
+    for (var i = 1; i <=     IMG_COUNT; i++) {
+        strHTML += `<img onclick="onSelectImg(this)" src="img/memes/${i}.jpg" data-id=${i} alt="">`
+    }
+
+    document.querySelector('.img-container').innerHTML = strHTML;
 }
 
 function onSelectImg(elImg){
@@ -36,12 +47,12 @@ function renderCanvas() {
       
       gMeme.lines.forEach(function(line) {  
         console.log('line...');
-        gCtx.font = line.size + 'px' + ' ' + line.font;
+        gCtx.font = line.size + 'px'// + ' ' + line.font;
         gCtx.textAlign = line.align;
         gCtx.fillStyle = line.color;
         gCtx.strokeStyle = line.stroke;
-        gCtx.fillText(line.txt, line.posX, line.posY);
-        gCtx.strokeText(line.txt, line.posX, line.posY);
+        gCtx.fillText(line.text, line.posX, line.posY);
+        gCtx.strokeText(line.text, line.posX, line.posY);
       })
     };
 
@@ -56,7 +67,12 @@ function onAddLine(){
 
 function onEditText(text){
     console.log('editing...', text);
-    var line = gMeme.lines[gMeme.selectedLineIdx];
+    var line = getCurrLine();
+    editText(text);
+    gCtx.font = line.size + 'px' + ' ' + line.font;
+    gCtx.textAlign = line.align;
+        gCtx.fillStyle = line.color;
+        gCtx.strokeStyle = line.stroke;
     gCtx.fillText(text, line.posX, line.posY);
     gCtx.strokeText(text, line.posX, line.posY);
 }
@@ -102,7 +118,10 @@ function addListeners(){
 }
 
 function onDown(ev){
-    //TODO empty input textbox
+    //TODO empty input textbox when I click anywhere outside the box
+    //clear input box
+    document.querySelector('.text-input').value = '';
+
     var pos = getEvPos(ev);
     if (!isLineClicked(pos)) return;
     console.log('moving text...');

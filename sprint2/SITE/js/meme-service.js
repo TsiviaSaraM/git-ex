@@ -2,39 +2,23 @@
 const DEFAULT_EMPTY_LINE = {
     text: '',
     size: 20, 
-    align: 'left', 
+    font: 'ariel',
+    align: 'center', 
     color: 'white' ,
     stroke: 'black',
-    posX: 100,
-    posY: 100,
+    posX: 200,
+    posY: 200,
 }
 
 var gKeywords = {'happy': 12,'funny puk': 1} 
 
 var gImgs = [{id: 1, url: 'img/popo.jpg', keywords: ['happy']}]; 
 
-var gMeme = {
-    selectedImgId: 5, 
-    selectedLineIdx: 0, 
-    lines: [ { 
-        txt: 'I never eat Falafel', 
-        text: '',
-        size: 20, 
-        align: 'left', 
-        color: 'white' ,
-        stroke: 'black',
-        posX: 10,
-        posY: 10,
-} ] 
+var gMeme ;
 
-};
 
+/*********DRAG LINE*************** */
 var gIsDrag = false;
-// var gMemes = [{ 
-//     selectedImgId: 1, 
-//     selectedLineIdx: 0, 
-//     lines: [ { txt: 'I never eat Falafel', size: 20, align: 'left', color: 'red' } ] 
-// }];
 
 //SEPARATE FILE
 function createMeme(id){
@@ -42,13 +26,12 @@ function createMeme(id){
         selectedImgId: id, 
         selectedLineIdx: 0, 
         lines: [ { 
-            txt: 'I never eat Falafel', 
-        text: '',
+        text: 'I', 
         size: 20, 
-        align: 'left', 
+        align: 'center', 
         color: 'white' ,
         stroke: 'black',
-        posX: 10,
+        posX: 150,
         posY: 10,
         }] 
     }
@@ -64,11 +47,15 @@ function isLineClicked(clkPos){
         var canvasText = gCtx.measureText(line.txt)
         var txtWidth = canvasText.width;
         var txtHeight = canvasText.fontBoundingBoxAscent + canvasText.fontBoundingBoxDescent;
-        // debugger;
         console.log('clicked pos:', clkPos.x, clkPos.y);
-        console.log('testing',line.posX, line.posY, txtWidth, txtHeight, clkPos.x > line.posX && clkPos.x < (line.posX + txtWidth) && clkPos.y > line.posY && clkPos.y < (line.posY + txtHeight));
-        return clkPos.x > line.posX && clkPos.x < (line.posX + txtWidth) &&
-                clkPos.y > line.posY && clkPos.y < (line.posY + txtHeight);
+        console.log('gLine pos beg:', line.posX, line.posY,);
+        console.log('gLine pos end:', line.posX + txtWidth);
+        // console.log('txtWidth', txtWidth);
+
+        // console.log('clicked pos:', clkPos.x, clkPos.y);
+        // console.log('testing',line.posX, line.posY, txtWidth, txtHeight, clkPos.x > line.posX && clkPos.x < (line.posX + txtWidth) && clkPos.y > line.posY && clkPos.y < (line.posY + txtHeight));
+        return clkPos.x > line.posX && clkPos.x < (line.posX + txtWidth) 
+            //&& clkPos.y > line.posY && clkPos.y < (line.posY + txtHeight);
     })
     
 }
@@ -90,11 +77,17 @@ function moveLine(pos) {
 function addLine(){
     gMeme.selectedLineIdx = gMeme.lines.length;
     gMeme.lines.push(DEFAULT_EMPTY_LINE);
-    // debugger;
-    if (gMeme.lines.length === 1) gMeme.lines.posY = 10;
-    else if (gMeme.lines.length === 2) gMeme.lines.posY = gElCanvas.height-5;
-    else gMeme.lines.posY = Math.floor(gElCanvas.height/2 + 20)
-    console.log('...line added', gMeme.lines.posY);
+    var line = getCurrLine();
+    if (gMeme.lines.length === 1) line.posY = 10;
+    else if (gMeme.lines.length === 2) line.posY = 140;
+    else line.posY = 75;
+    console.log('line length', gMeme.lines.length );
+    console.log('...line added at x: y', line.posX, line.posY);
+}
+
+function editText(newTxt){
+    var line = gMeme.lines[gMeme.selectedLineIdx];
+    line.text = newTxt;
 }
 
 function editSize(direction){
@@ -111,3 +104,7 @@ function removeText() {
 //     return {x: line.posX, y: line.posY};
 
 // }
+
+function getCurrLine() {
+    return gMeme.lines[gMeme.selectedLineIdx];
+}
