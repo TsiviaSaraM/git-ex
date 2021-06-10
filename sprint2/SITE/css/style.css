@@ -38,8 +38,6 @@ li, ul {
 
 main {
     background-color: #E3E3E3;
-    margin-top: 66px;
-    /* position: relative; */
 }
 
 .conatiner {
@@ -98,9 +96,27 @@ img {
     object-fit: contain;
 }
 
-/*FILTER*/
-.filter {
+/*SEARCH*/
+.search {
     padding-left: 50px;
+    line-height: 100px;
+}
+
+.search .kws {
+    flex: 1;
+    justify-content: flex-end;
+    gap: 3rem;
+    padding-left: 54px;
+}
+
+.search .more {
+    margin-left: 32px;
+}
+
+.search .search-box {
+    height: 37px;
+    vertical-align: middle;
+    margin-top: 37px;
 }
 
 /*MEMES GRID*/

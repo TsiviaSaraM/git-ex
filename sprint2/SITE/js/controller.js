@@ -9,6 +9,7 @@ var gStartPos;
 
 function onInit(){
     console.log('init...');
+    renderKws();
     renderImages();
     gElCanvas = document.querySelector('canvas');
     gCtx = gElCanvas.getContext('2d');
@@ -18,9 +19,21 @@ function onInit(){
 
 function renderImages() {
     var strHTML = '';
-    for (var i = 1; i <=IMG_COUNT; i++) {
-        strHTML += `<img onclick="onSelectImg(this)" src="img/memes/${i}.jpg" data-id=${i} alt="">`
-    }
+    // gImages.forEach(function(image){
+    //     console.log(image);
+    //     strHTML += `<img onclick="onSelectImg(this)" src="${image.url}" data-id=${image.id} alt="">`
+    // })
+
+    var strHTML = gImages.reduce(function(strHTML, image){
+        if (gSearch === '' || image.keywords.includes(gSearch)) 
+            return strHTML + `<img onclick="onSelectImg(this)" src="${image.url}" data-id=${image.id} alt="">`
+        else return strHTML;
+    }, '')
+
+
+    // for (var i = 1; i <=IMG_COUNT; i++) {
+    //     strHTML += `<img onclick="onSelectImg(this)" src="img/memes/${i}.jpg" data-id=${i} alt="">`
+    // }
 
     document.querySelector('.img-container').innerHTML = strHTML;
 }
@@ -62,6 +75,12 @@ function renderCanvas() {
             gCtx.strokeText(line.text, line.posX, line.posY);
       })
     };
+}
+
+function onSearch(text) {
+    console.log('searching...', text);
+    updateSearch(text);
+    renderImages();
 }
 
 function renderSelectText(line) {

@@ -26,9 +26,10 @@
         <div class="header-cover"></div>
         
         <section class="search flex">
-            <input type="text">
-            <p>word1 word2 word3 word4</p>
-            <a href="">more...</a>
+            <input class="search-box" type="search" oninput="onSearch(this.value)">
+            <!-- <button class="btn-search" >Search</button> -->
+            <div class="kws flex"></div>
+            <p class="more" onclick="onShowAllKws">more...</p>
         </section>
 
         <main>
@@ -115,6 +116,7 @@
 
 
     </div>
+    <script src="js/search-service.js"></script>
     <script src="js/meme-service.js"></script>
     <script src="js/controller.js"></script>
 </body>
