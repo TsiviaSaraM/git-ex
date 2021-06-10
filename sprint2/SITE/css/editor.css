@@ -38,3 +38,43 @@ canvas {
     justify-content: center;
     gap: 5px;
 }
+
+
+/**********SHARE SECTION************/
+.share-options {
+    display: none;
+    height: 534px;
+    width: 534px;
+    /* margin-right: -267px; */
+    background: white;
+    position: fixed;
+    z-index: 1;
+    top: 70px;
+    left: 20px;
+    padding: 237px 123px;
+    
+}
+
+/* .share .flex-container{
+    
+justify-content: space-evenly;
+} */
+
+.share-options .share, .download, .close {
+    background-color: #FF7F00;
+    color: white;
+    border-style: none;
+    border-radius: 10px;
+    height: 50px;
+    width: 100px;
+    margin-right: 1rem;
+    text-align: center;
+    vertical-align: middle; 
+    line-height: 50px;
+}
+
+/* .close {
+    text-decoration: underline;
+    padding-top: 2rem;
+    position: sticky;
+} */

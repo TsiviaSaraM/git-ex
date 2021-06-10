@@ -57,9 +57,9 @@
                     <div class="row3 flex">
                         <button onclick="onEditSize(1)">A+</button>
                         <button onclick="onEditSize(-1)">A</button>
-                        <button onclick="onEditJustifyText('LEFT')"></button>
+                        <!-- <button onclick="onEditJustifyText('LEFT')"></button>
                         <button onclick="onEditJustifyText('CENTER')"></button>
-                        <button onclick="onEditJustifyText('RIGHT')"></button>
+                        <button onclick="onEditJustifyText('RIGHT')"></button> -->
 
                     </div>
                     <div class="row4 flex">
@@ -71,15 +71,22 @@
                         <button onclick="onEditFont(el)"></button>
                         <!-- <input onclick="onEditStroke(this)" type="color"> -->
                         <input type="color" class="fill-color" onclick="onEditFill(this)">
-                        <button onclick="onEditStroke(this)" >color</button>
-                        <!-- <button ><input onclick="onEditStroke(this)" type="color"></button> -->
+                        <input type="color" onclick="onEditStroke(this)">
+                            <!-- <button ><input onclick="onEditStroke(this)" type="color"></button> -->
                         <button onclick="onEditFill(this)"></button>
                     </div>
                     <div class="row5 flex">STICKERS</div>
-                    <div class="row6 flex"><button>Share</button></div>
+                    <div class="row6 flex" onclick="onOpenShareOptions()"><button>Share</button></div>
                     
                 </div>
     
+            </section>
+
+            <section class="share-options flex">
+                
+                    <div onclick="onCloseShareOptions()" class="close">close</div>
+                    <div class="share" onclick="onShare()">Share</div>
+                    <a href="" class="download" onclick=onDownload() download="canvas.jpeg">Download</a>
             </section>
 
             <section class="about flex">

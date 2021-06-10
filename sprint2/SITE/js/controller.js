@@ -139,6 +139,29 @@ function onEditFill(el){
     
 }
 
+function onOpenShareOptions(){
+    console.log('opening share options...');
+    document.querySelector('.share-options').style.display = 'flex';
+    document.querySelector('.editor').style.display = 'none';
+    document.querySelector('.about').style.display = 'none';
+}
+
+function onCloseShareOptions() {
+    console.log('closing share options...');
+    document.querySelector('.share-options').style.display = 'none';
+    document.querySelector('.editor').style.display = 'flex';
+    document.querySelector('.about').style.display = 'flex';
+}
+
+function onShare(){
+
+}
+
+function onDownload() {
+    var elLink = document.querySelector('.download');
+    elLink.href = gElCanvas.toDataURL();
+}
+
 /***************ADD LISTENERS************* */
 
 function renderLine() {
