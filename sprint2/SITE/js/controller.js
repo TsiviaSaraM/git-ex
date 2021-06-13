@@ -324,6 +324,16 @@ function resizeCanvas(elCanvas = gElCanvas) {
     gElCanvas.height = elContainer.offsetHeight;   
 }
 
+function onSetLang(lang) {
+    console.log('lets set the lang...');
+    if (lang === 'he') document.body.classList.add('rtl')
+    else document.body.classList.remove('rtl')
+    setLang(lang);
+    doTrans();
+    // renderBooks();
+    
+}
+
 
 
 

@@ -14,22 +14,27 @@
         <header class="flex">
             <h3 class="logo">memgen</h3>
 
-            <nav>
+            <nav class="flex flex-col">
                 <ul class="flex">
-                    <li class="flex" onClick="renderMemes()" class="nav-memes">Memes</li>
-                    <li class="flex" onclick="onInit()"><a href="#gallery">Gallery</a> </li>
-                    <li class="flex"><a href="#about">Abouts</a> </li>
+                    <li class="flex nav-memes" onClick="renderMemes()" data-trans="memes" >Memes</li>
+                    <li class="flex" onclick="onInit()"><a href="#gallery" data-trans="gallery">Gallery</a> </li>
+                    <li class="flex"><a href="#about" data-trans="about">About</a> </li>
 
                 </ul>
             </nav>
+            <select name="lang" class="set-lang" onchange="onSetLang(this.value)">
+                <option value="en">English</option>
+                <option value="he">עברית</option>
+            </select>
         </header>
         <div class="header-cover"></div>
         
+
         <section class="search flex">
             <input class="search-box" type="search" oninput="onSearch(this.value)" placeholder="search">
             <div class="kws flex"></div>
         </section>
-
+        
         <main>
             
             <div class="grid-container img-container" id="gallery">
@@ -71,8 +76,8 @@
                     <!-- <div class="row5 flex">STICKERS</div> -->
                     <div class="row6 flex" >
                         <button class="edit" onclick="onOpenShareOptions()">Share</button>
-                        <button class="edit" onclick="onCloseEditor()">Close</button>
-                        <button class="edit" onclick="onSaveMeme()">Save</button>
+                        <button class="edit" onclick="onCloseEditor()" data-trans="close">Close</button>
+                        <button class="edit" onclick="onSaveMeme()" data-trans="save">Save</button>
                         
                     </div>
                     
@@ -80,18 +85,17 @@
     
             </section>
 
-            <section class="share-options flex">
+            <section class="share-options flex" data-trans="share">
                 
-                    <div onclick="onCloseShareOptions()" class="close">close</div>
-                    <div class="share" onclick="onShare()">Share</div>
+                    <div onclick="onCloseShareOptions()" class="close" data-trans="close">close</div>
                     <a href="" class="download" onclick=onDownload() download="canvas.jpeg">Download</a>
             </section>
 
             <section class="about flex" id="about">
                 <img src="img/monica.png" alt="monica" class="monica">
-                <div class="about-text flex flex-col">
+                <div class="about-text flex flex-col" >
                     <p class="bold">Monica Geller</p>
-                    <p>is a fictional character, one of the six main characters who apears</p>
+                    <p data-trans="about-par">is a fictional character, one of the six main characters who apears</p>
 
                     </div>
                 </div>
@@ -99,7 +103,7 @@
             </section>
             <footer>
                 <h3 class="logo">memgen</h3>
-                <p>all rights reserved 2019</p>
+                <p data-trans="copyright">all rights reserved 2019</p>
             </footer>
 
 
@@ -111,6 +115,7 @@
 
     <script src="js/image-service.js"></script>
     <script src="js/search-service.js"></script>
+    <script src="js/i18-service.js"></script>
     <script src="js/meme-service.js"></script>
     <script src="js/controller.js"></script>
     <script src="js/memes-controller.js"></script>

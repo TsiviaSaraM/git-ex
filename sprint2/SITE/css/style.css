@@ -274,9 +274,6 @@ footer p {
 
 @media screen and (min-width: 1200px) {
 
-    header {
-        /* background-color: green; */
-    }
     .container {
         max-width: 1200px;
     }
@@ -287,4 +284,10 @@ footer p {
         width: 100%;
     }
     
+}
+
+@media screen and (max-width: 515px) {
+    .set-lang {
+        display: none;
+    }
 }
