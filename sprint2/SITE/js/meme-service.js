@@ -23,23 +23,24 @@ function createMeme(id){
     gMeme = {
         selectedImgId: id, 
         selectedLineIdx: 0, 
-        lines: [ { 
-        text: 'I am here', 
-        size: 60, 
-        align: 'left', 
-        color: 'hotpink' ,
-        stroke: 'black',
-        posX: 150,
-        posY: 10,
-        }, { 
-            text: 'I am there', 
-            size: 20, 
-            align: 'left', 
-            color: 'pink' ,
-            stroke: 'black',
-            posX: 150,
-            posY: 150,
-            }] 
+        lines: [],
+        // lines: [ { 
+        // text: 'I am here', 
+        // size: 30, 
+        // align: 'left', 
+        // color: 'hotpink' ,
+        // stroke: 'black',
+        // posX: 150,
+        // posY: 10,
+        // }, { 
+        //     text: 'I am there', 
+        //     size: 20, 
+        //     align: 'left', 
+        //     color: 'pink' ,
+        //     stroke: 'black',
+        //     posX: 150,
+        //     posY: 150,
+        //     }] 
     }
 }
 
@@ -75,12 +76,12 @@ function moveLine(dx, dy) {
 
 function addLine(){
     gMeme.selectedLineIdx = gMeme.lines.length;
-    gMeme.lines.push(DEFAULT_EMPTY_LINE);
+    gMeme.lines.push(Object.assign({}, DEFAULT_EMPTY_LINE));
     var line = getCurrLine();
-    if (gMeme.lines.length === 1) line.posY = 10;
-    else if (gMeme.lines.length === 2) line.posY = 175;
-    else line.posY = 200;
-    console.log('line length', gMeme.lines.length );
+    if (gMeme.lines.length === 1) line.posY = 50;
+    else if (gMeme.lines.length === 2) line.posY = gElCanvas.height;
+    else line.posY = gElCanvas.height  / 2;
+    console.log('new curr line', gMeme.selectedLineIdx );
     console.log('...line added at x: y', line.posX, line.posY);
 }
 

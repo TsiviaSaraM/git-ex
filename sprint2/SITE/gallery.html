@@ -16,8 +16,8 @@
 
             <nav>
                 <ul class="flex">
-                    <li class="flex"><a href="#gallery">Gallery</a> </li>
-                    <!-- <li class="flex"><a href="">Memes</a> </li> -->
+                    <li class="flex" onClick="renderMemes()" class="nav-memes">Memes</li>
+                    <li class="flex" onclick="onInit()"><a href="#gallery">Gallery</a> </li>
                     <li class="flex"><a href="#about">Abouts</a> </li>
 
                 </ul>
@@ -28,7 +28,6 @@
         <section class="search flex">
             <input class="search-box" type="search" oninput="onSearch(this.value)" placeholder="search">
             <div class="kws flex"></div>
-            <!-- <p class="more" onclick="onShowAllKws">more...</p> -->
         </section>
 
         <main>
@@ -39,42 +38,42 @@
                 <img onclick="onSelectImg(this)" src="img/memes/3.jpg" data-id=3 alt="">
             </div>
 
+            <img src="" id="tableBanner">
+            <input class="edit file" onchange="onUploadFile(this)" type="file" name="filename">
+
+            <div class="grid-container meme-container" id="">
+            </div>
+
             <section class="editor flex">
                 <div class="canvas-container">
                     <canvas width="400" height="400" style="outline:1px solid green"></canvas>
                 </div>
 
                 <div class="control-box flex flex-col">
-                    <input type="text" class="text-input" oninput="onEditText(this.value)" onmousedown="onAddLine(this.value)" onmouseout="onEndEditText()">
+                    <input type="text" class="edit text-input" oninput="onEditText(this.value)" onmousedown="onAddLine(this.value)">
                     
                     <div class="row2 flex">
-                        <button class="vertivalmove" onclick="onVerticalMove(-1)"><img src="img/ICONS/moveUp.png" alt=""></button>
-                        <button class="vertivalmove" onclick="onVerticalMove(1)"><img src="img/ICONS/moveDown.png" alt=""></button>
+                        <button class="edit vertivalmove" onclick="onVerticalMove(-1)"><img src="img/ICONS/moveUp.png" alt=""></button>
+                        <button class="edit vertivalmove" onclick="onVerticalMove(1)"><img src="img/ICONS/moveDown.png" alt=""></button>
                         <button onclick="onSwitchLine()" class="add-text-area"><img src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
                     </div>
                     
                     <div class="row3 flex">
-                        <button onclick="onRemoveText()"><img src="img/ICONS/trash.png" alt=""></button>
-                        <button onclick="onEditSize(1)"><img src="img/ICONS/increase font - icon.png" alt=""></button>
-                        <button onclick="onEditSize(-1)"><img src="img/ICONS/decrease font - icon.png" alt=""></button>
-                        <!-- <button onclick="onEditJustifyText('LEFT')"></button>
-                        <button onclick="onEditJustifyText('CENTER')"></button>
-                        <button onclick="onEditJustifyText('RIGHT')"></button> -->
+                        <button class="edit" onclick="onRemoveText()"><img src="img/ICONS/trash.png" alt=""></button>
+                        <button class="edit" onclick="onEditSize(1)"><img src="img/ICONS/increase font - icon.png" alt=""></button>
+                        <button class="edit" onclick="onEditSize(-1)"><img src="img/ICONS/decrease font - icon.png" alt=""></button>
 
                     </div>
                     <div class="row4 flex">
-                        <!-- <select name="font" placeholder="font">
-                            <option value="impact">Impact</option>
-                            <option value="arial">Arial</option>
-                            <option value="helvetica">Helvetica</option>
-                        </select> -->
-                        <input type="color" class="fill-color" onchange="onEditFill(this)">
-                        <input type="color" onchange="onEditStroke(this)">
+                        <input type="color" class="edit fill-color" onchange="onEditFill(this)">
+                        <input type="color" class="edit" onchange="onEditStroke(this)">
                     </div>
                     <!-- <div class="row5 flex">STICKERS</div> -->
                     <div class="row6 flex" >
-                        <button onclick="onOpenShareOptions()">Share</button>
-                        <button onclick="onCloseEditor()">Close</button>
+                        <button class="edit" onclick="onOpenShareOptions()">Share</button>
+                        <button class="edit" onclick="onCloseEditor()">Close</button>
+                        <button class="edit" onclick="onSaveMeme()">Save</button>
+                        
                     </div>
                     
                 </div>
@@ -93,12 +92,6 @@
                 <div class="about-text flex flex-col">
                     <p class="bold">Monica Geller</p>
                     <p>is a fictional character, one of the six main characters who apears</p>
-                    <!-- <ul class="social flex clean-list">
-                        <li class="facebook social-link flex"><a href="#" ><img src="img/facebook.png" alt=""></a></li>
-                        <li class="linkedin social-link flex"><a href="#" ></a></li>
-                        <li class="facebook social-link flex"><a href="#"></a></li>
-                        <li class="github social-link flex"><a href="#" ></a></li>
-                    </ul> -->
 
                     </div>
                 </div>
@@ -114,8 +107,12 @@
 
 
     </div>
+
+
+    <script src="js/image-service.js"></script>
     <script src="js/search-service.js"></script>
     <script src="js/meme-service.js"></script>
     <script src="js/controller.js"></script>
+    <script src="js/memes-controller.js"></script>
 </body>
 </html>

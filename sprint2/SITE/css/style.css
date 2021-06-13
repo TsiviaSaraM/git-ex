@@ -95,9 +95,13 @@ header nav li {
     align-items: center;
 }
 
-header nav a {
+header nav a, header nav{
     /* width:  */
     padding-left: 29px;
+}
+
+.nav-memes {
+    cursor: grab;
 }
 
 img {
@@ -116,6 +120,7 @@ img {
     flex: 1;
     justify-content:space-between;
     gap: 2rem;
+    overflow: visible;
 }
 
 .search .search-box {
@@ -142,7 +147,7 @@ img {
 }
 
 /*MEMES GRID*/
-.img-container {
+.img-container, .meme-container {
     /* max-width: 400px; */
     background-color: #E3E3E3;
     margin-bottom: 77px;
@@ -154,7 +159,7 @@ img {
     gap: 10px 10px;
 }
 
-.img-container img {
+.img-container img,  .meme-container canvas{
     display: flex;
     width: 100%;
     height: 100%;

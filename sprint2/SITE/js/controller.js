@@ -11,11 +11,10 @@ function onInit(){
     console.log('init...');
     renderKws();
     renderImages();
-    
 
 }
-
-function renderImages() {
+/******RENDERS**************************** */
+function renderImages() { 
     var strHTML = '';
 
     var strHTML = gImages.reduce(function(strHTML, image){
@@ -24,7 +23,6 @@ function renderImages() {
         else return strHTML;
     }, '')
 
-    
     document.querySelector('.img-container').innerHTML = strHTML;
 }
 
@@ -42,11 +40,10 @@ function onSelectImg(elImg){
     createMeme(id);
     renderCanvas();
     addListeners();
-    //show the canvas
 
 }
 
-function renderCanvas() {
+function renderCanvas() { 
     gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height);
     
     var img=new Image();
@@ -69,10 +66,35 @@ function renderCanvas() {
     };
 }
 
+function renderKws() {
+    var strHTML = '';
+    var kws = prepareCommonKws();
+    kws.forEach(function(kw){
+        var fontSize = getFontSize(kw);
+        strHTML += `<div style="font-size:${fontSize}px;">${kw} </div>`;
+    })
+
+    strHTML += `<p class="more" onclick="renderAllKws()">more...</p>`
+    document.querySelector('.kws').innerHTML = strHTML;
+}
+
+function renderAllKws() {
+    var strHTML = '';
+    var kws = prepareAllKws();
+    kws.forEach(function(kw){
+        var fontSize = getFontSize(kw);
+        strHTML += `<div style="font-size:${fontSize}px;">${kw} </div>`;
+    })
+    strHTML += `<p class="close-kws" onclick="renderKws()">close.</p>`
+    document.querySelector('.kws').innerHTML = strHTML;
+}
+
+
 function onSearch(text) {
     console.log('searching...', text);
     updateSearch(text);
     renderImages();
+    renderKws();
 }
 
 function renderSelectText(line) {
@@ -90,14 +112,10 @@ function onAddLine(){
 }
 
 function onEditText(text){
-    var line = getCurrLine();
+    // var line = getCurrLine();
     editText(text);
     renderCanvas();
     
-}
-
-function onEndEditText(){
-    // console.log('ending edit text...');
 }
 
 //TODO make size change while mouse remains pressed, using onmouseup
@@ -172,6 +190,22 @@ function onDownload() {
     elLink.href = gElCanvas.toDataURL();
 }
 
+function onUploadFile(el){
+    // var reader = new FileReader();
+    // reader.onload = function () {
+    //     const base64String = reader.result.replace('data:', '').replace(/^.+,/, '');
+    //     console.log(reader.result);
+    //     localStorage.setItem("imgData", base64String);
+    //     createImage(`url(data:image/png;base64,${base64String})`);
+    //     var strHTML = `<img onclick="onSelectImg(this)" src="url(data:image/png;base64,${base64String})" data-id=${gId++} alt="">`
+    //     document.querySelector('.img-container').innerHTML += strHTML;
+    // };
+    // reader.readAsDataURL(el.files[0]);
+    // var elImg = document.querySelector('[data-'+gId+']');
+    // onSelectImg(elImg)
+    // renderCanvas();
+
+}
 /***************ADD LISTENERS************* */
 
 function addListeners(){
@@ -181,11 +215,34 @@ function addListeners(){
     gElCanvas.addEventListener('touchmove', onMove);
     gElCanvas.addEventListener('mouseup', onUp);
     gElCanvas.addEventListener('touchend', onUp);
+
+    document.addEventListener('click', onOutsideClick);
+}
+
+var gEv;
+function onOutsideClick(ev) {
+    gEv = ev;
+    // console.log(ev.path);
+    // var isOutsideClick = !document.querySelector('.edit').contains(ev.target);
+    var elControls = Array.from(document.querySelectorAll('.edit'));
+    var isOutsideClick = !elControls.some(function(elControl) {
+        return elControl.contains(ev.target);
+    })
+
+    // debugger;
+    console.log(isOutsideClick);
+    if (isOutsideClick) {
+        console.log('is outside click');
+        document.querySelector('.text-input').value = '';
+        if (!document.querySelector('canvas').contains(ev.target))gMeme.selectedLineIdx = -1;     
+        renderCanvas();
+    }
 }
 
 function onDown(ev){
     //TODO empty input textbox when I click anywhere outside the box
     //clear input box
+    console.log('mousedown');
     document.querySelector('.text-input').value = '';
     const pos = getEvPos(ev);
     var selectedLineIdx = getClickedLine(pos)
@@ -244,7 +301,6 @@ function getHeight(text){
     return canvasText.fontBoundingBoxAscent + canvasText.fontBoundingBoxDescent;
 }
 
-//txtWidth txtHeight is accurate, clkPos is accurate
 function getClickedLine(clkPos){
     console.log('checking if clicked');
     return gMeme.lines.findIndex(function(line){
@@ -261,9 +317,13 @@ function getClickedLine(clkPos){
 }
 
 
-function resizeCanvas() {
+function resizeCanvas(elCanvas = gElCanvas) {
     console.log('resizing...');
     var elContainer = document.querySelector('.canvas-container');
     gElCanvas.width = elContainer.offsetWidth;
     gElCanvas.height = elContainer.offsetHeight;   
 }
+
+
+
+
