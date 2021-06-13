@@ -17,25 +17,42 @@
             <nav class="flex flex-col">
                 <ul class="flex">
                     <li class="flex nav-memes" onClick="renderMemes()" data-trans="memes" >Memes</li>
-                    <li class="flex" onclick="onInit()"><a href="#gallery" data-trans="gallery">Gallery</a> </li>
-                    <li class="flex"><a href="#about" data-trans="about">About</a> </li>
+                    <li class="flex nav-gallery" onclick="onInit()"><a href="" data-trans="gallery">Gallery</a> </li>
+                    <li class="flex nav-about"><a href="#about" data-trans="about">About</a> </li>
 
                 </ul>
             </nav>
+        </header>
+        <div class="header-cover"></div>
+        
+        
+        <section class="search flex">
+            <input class="search-box" type="search" oninput="onSearch(this.value)" placeholder="search">
+            <div class="kws flex"></div>
             <select name="lang" class="set-lang" onchange="onSetLang(this.value)">
                 <option value="en">English</option>
                 <option value="he">עברית</option>
             </select>
-        </header>
-        <div class="header-cover"></div>
-        
-
-        <section class="search flex">
-            <input class="search-box" type="search" oninput="onSearch(this.value)" placeholder="search">
-            <div class="kws flex"></div>
         </section>
         
         <main>
+
+            <body onload="init()">
+
+                <!-- <div class="inputs">
+                  <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" />
+                
+                  <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+                    <input name="img" id="imgData" type="hidden" />
+                    <div class="share-container">share container</div>
+                  </form>
+              
+                </div> -->
+                <img src="" id="tableBanner">
+                <input class="edit file" onchange="onUploadFile(this)" type="file" name="filename">
+    
+                <div class="grid-container meme-container" id="">
+                </div>
             
             <div class="grid-container img-container" id="gallery">
                 <img onclick="onSelectImg(this)" src="img/memes/1.jpg" data-id=1 alt="">
@@ -43,11 +60,6 @@
                 <img onclick="onSelectImg(this)" src="img/memes/3.jpg" data-id=3 alt="">
             </div>
 
-            <img src="" id="tableBanner">
-            <input class="edit file" onchange="onUploadFile(this)" type="file" name="filename">
-
-            <div class="grid-container meme-container" id="">
-            </div>
 
             <section class="editor flex">
                 <div class="canvas-container">
@@ -60,7 +72,7 @@
                     <div class="row2 flex">
                         <button class="edit vertivalmove" onclick="onVerticalMove(-1)"><img src="img/ICONS/moveUp.png" alt=""></button>
                         <button class="edit vertivalmove" onclick="onVerticalMove(1)"><img src="img/ICONS/moveDown.png" alt=""></button>
-                        <button onclick="onSwitchLine()" class="add-text-area"><img src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+                        <button onclick="onSwitchLine()" class="add-text-area edit"><img src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
                     </div>
                     
                     <div class="row3 flex">
@@ -70,14 +82,29 @@
 
                     </div>
                     <div class="row4 flex">
-                        <input type="color" class="edit fill-color" onchange="onEditFill(this)">
-                        <input type="color" class="edit" onchange="onEditStroke(this)">
+                        <button><label for="edit-fill"  class="edit"><img src="img/ICONS/text stroke.png" alt=""></label></button>
+                        <!-- <label for="edit-fill"  class="edit"><img src="img/ICONS/text stroke.png" alt=""></label> -->
+                        <button><label for="edit-stroke" class="edit"><img src="img/ICONS/paint-board-and-brush.png" alt=""></label></button>
+                        <input type="color" class="edit fill-color hidden" onchange="onEditFill(this)" id="edit-fill" colorpick-eyedropper-active="false" hidden>
+                        <!-- <label for="edit-stroke" class="edit"><img src="img/ICONS/paint-board-and-brush.png" alt=""></label> -->
+                        <input type="color" class="edit hidden" onchange="onEditStroke(this)" id="edit-stroke" colorpick-eyedropper-active="false" hidden>
+                    </div>
+                    <div class="row6 flex sticker-container edit">
+                        <img class="arrow" src="img/ICONS/left.png" onclick="onMoveStickerBanner(-1)" alt="">
+                        <div class="stickers">
+                            <img src="img/stickers/dog.png" onclick="onSelectSticker(3)" alt="">
+                            <img src="img/stickers/truck.png" onclick="onSelectSticker(4)" alt="">
+                            <img src="img/stickers/weight.png" onclick="onSelectSticker(1)" alt="">
+                            <img src="img/stickers/rain.png" onclick="onSelectSticker(2)" alt="">
+
+                        </div>
+                        <img class="arrow" src="img/ICONS/right.png"  onclick="onMoveStickerBanner(1)" alt="">
                     </div>
                     <!-- <div class="row5 flex">STICKERS</div> -->
-                    <div class="row6 flex" >
-                        <button class="edit" onclick="onOpenShareOptions()">Share</button>
-                        <button class="edit" onclick="onCloseEditor()" data-trans="close">Close</button>
-                        <button class="edit" onclick="onSaveMeme()" data-trans="save">Save</button>
+                    <div class="row7 flex" >
+                        <button class="edit share" onclick="onOpenShareOptions()" data-trans="share">Share</button>
+                        <button class="edit close" onclick="onCloseEditor()" data-trans="close">Close</button>
+                        <button class="edit save" onclick="onSaveMeme()" data-trans="save">Save</button>
                         
                     </div>
                     
@@ -116,7 +143,9 @@
     <script src="js/image-service.js"></script>
     <script src="js/search-service.js"></script>
     <script src="js/i18-service.js"></script>
+    <script src="js/sticker-service.js"></script>
     <script src="js/meme-service.js"></script>
+    <script src="js/uploadImg-controller.js"></script>
     <script src="js/controller.js"></script>
     <script src="js/memes-controller.js"></script>
 </body>

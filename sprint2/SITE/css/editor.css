@@ -5,7 +5,8 @@
     /* background-color: hotpink; */
     padding-top: 24px;
     padding-bottom: 21px;
-    padding-left:11.4vw;
+    padding-left:100px;
+    padding-right: 100px; 
     gap: 97px;
     gap: 8vw;
     justify-content: center
@@ -30,16 +31,52 @@ canvas {
     margin: 0 auto; /*WHY???*/
 }
 
-
+.control-box {
+    justify-content: flex-start;
+    gap: 5px;
+}
 .control-box .flex {
     justify-content: center;
     gap: 5px;
 }
 
 .control-box .flex img {
-    width:61px;
-    height: 61px;
+    width:51px;
+    height: 51px;
 }
+
+.control-box button {
+    border-radius: 10px;
+    border: none;
+    background-color: white;
+}
+
+.control-box .save, .control-box .close, .control-box .share {
+    background-color: #FF7F00;
+    /* border-radius: ; */
+    height: 41px;
+    width: 61px;
+    color: white;
+}
+
+.control-box .sticker-container {
+    background-color: white;
+    padding: 10px 1px;
+    border-radius: 10px;
+    justify-content: space-between
+
+}
+
+.control-box .sticker-container img{
+    /* height: 41px; */
+    width: 41;
+
+}
+
+.control-box .sticker-container .arrow {
+    width: 16px;
+}
+
 
 /**********SHARE SECTION************/
 .share-options {
@@ -62,7 +99,7 @@ canvas {
 justify-content: space-evenly;
 } */
 
-.share-options .share, .download, .close {
+.share-options .share, .download, .share-options .close {
     background-color: #FF7F00;
     color: white;
     border-style: none;
@@ -200,7 +237,7 @@ justify-content: space-evenly;
                         gap: 5px;
                     }
 
-                    .control-box .flex img {
+                    .control-box img {
                         width:41px;
                         height: 41px;
                     }

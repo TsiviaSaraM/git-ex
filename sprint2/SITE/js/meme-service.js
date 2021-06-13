@@ -1,7 +1,7 @@
 'use strict'
 const DEFAULT_EMPTY_LINE = {
     text: '',
-    size: 20, 
+    size: 40, 
     font: 'font',
     align: 'left', 
     color: 'white' ,
@@ -24,6 +24,10 @@ function createMeme(id){
         selectedImgId: id, 
         selectedLineIdx: 0, 
         lines: [],
+        stickers: [
+            {id: 1, posX: 130, posY: 150},
+
+        ]
         // lines: [ { 
         // text: 'I am here', 
         // size: 30, 
@@ -47,9 +51,6 @@ function createMeme(id){
 function setCurrImg(){
 
 }
-
-
-
 
 function setLineDrag(val){
     gIsDrag = val;

@@ -1,6 +1,6 @@
 'use strict'
 
-const MAX_FONT_SIZE = 48;
+const MAX_FONT_SIZE = 35;
 
 
 var gKeywords = {'1234': 4, 'qwer': 3, 'asdf': 5, 'zxcv': 1, 'poiu': 4}

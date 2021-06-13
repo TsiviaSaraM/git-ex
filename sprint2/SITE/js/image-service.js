@@ -5,6 +5,8 @@ var gImages = [
     {id: 2, url: 'img/memes/2.jpg', keywords: ['asdf']},
     {id: 3, url: 'img/memes/3.jpg', keywords: ['zxcv']},
     {id: 4, url: 'img/memes/4.jpg', keywords: ['poiu', '1234']},
+    {id: 19, url: 'img/memes/19.jpg', keywords: ['1234']},
+    {id: 18, url: 'img/memes/18.jpg', keywords: ['1234']},
     {id: 5, url: 'img/memes/5.jpg', keywords: []},
     {id: 6, url: 'img/memes/6.jpg', keywords: []},
     {id: 7, url: 'img/memes/7.jpg', keywords: []},
@@ -18,7 +20,6 @@ var gImages = [
     {id: 15, url: 'img/memes/15.jpg', keywords: []},
     {id: 16, url: 'img/memes/16.jpg', keywords: []},
     {id: 17, url: 'img/memes/17.jpg', keywords: ['1234']},
-    {id: 18, url: 'img/memes/18.jpg', keywords: ['1234']}
 ]
 var gId = 19;
 
