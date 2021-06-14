@@ -1,0 +1,25 @@
+body{
+    padding: 0 100px;
+    color: #FFFECB;
+    font-family: sans-serif;
+    text-align: center;
+    background-color: #FEA82F;
+}
+
+.pokemons-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 3px;
+    /* text-align: center; */
+    
+}
+
+.pokemons-container .pokemon {
+    background-color: #FF2E00;
+    border-radius: 10px;
+    
+}
+
+.pokemon-name{
+    text-transform: capitalize;
+}
