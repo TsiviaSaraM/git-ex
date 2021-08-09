@@ -12,6 +12,7 @@ export default function ContactPreview({contact}) {
                     {/* <p>phone: {contact.phone} </p> */}
                     {/* <p>id: {contact._id} </p> */}
                     {/* <button className="btn-add" >+</button> */}
+                    <Link to={"/contact/" + contact._id} >View More</Link>
                     <Link to={"/contact/edit/" + contact._id} className="btn-add" >+</Link>
                 </li>
 
