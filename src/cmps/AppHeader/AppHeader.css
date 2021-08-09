@@ -1,0 +1,16 @@
+.app-header {
+    height: 80px;
+    background-color: rgb(247, 230, 230);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .app-header nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+  }
+  .app-header nav .active-nav {
+    color: red;
+  }
